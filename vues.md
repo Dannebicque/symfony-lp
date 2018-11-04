@@ -53,11 +53,6 @@ On peut également reprendre le block parent via
 
 On crée donc des templates mère assez flexibles pour pouvoir en hériter et surcharger les différents blocks
 
-
-## Inclusions
-
-## Filtres
-
 ## Exercice 3 
 
 * Utiliser l'héritage pour mettre le menu dans un seul fichier mais visible sur les 2 pages.
@@ -66,3 +61,10 @@ On crée donc des templates mère assez flexibles pour pouvoir en hériter et su
 * Pour la couleur rouge afficher en plus le Message : "Attention risque de virus" en rouge
 * Dans le menu rajouter un lien vers les pages couleurs : red, blue, yellow, pink, violet, salmon en utilisant un foreach
 * Mettre en souligné l'url active
+
+## Inclusions
+
+## Filtres
+
+## Assets
+

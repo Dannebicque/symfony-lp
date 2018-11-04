@@ -170,3 +170,34 @@ Ici on va récupérer le template présent dans templates/default/index.html.twi
 	* http://localhost/color/blue : affiche "blue" à l'écran dynamiquement
 	* http://localhost/color/red : affiche "red" à l'écran dynamiquement
 	* Ajouter un menu avec des liens vers les 2 pages créées.
+	
+## Manipuler les requests
+
+The Request and Response Object¶
+As mentioned earlier, Symfony will pass the Request object to any controller argument that is type-hinted with the Request class:
+
+use Symfony\Component\HttpFoundation\Request;
+
+public function index(Request $request)
+{
+    $request->isXmlHttpRequest(); // is it an Ajax request?
+
+    $request->getPreferredLanguage(array('en', 'fr'));
+
+    // retrieves GET and POST variables respectively
+    $request->query->get('page');
+    $request->request->get('page');
+
+    // retrieves SERVER variables
+    $request->server->get('HTTP_HOST');
+
+    // retrieves an instance of UploadedFile identified by foo
+    $request->files->get('foo');
+
+    // retrieves a COOKIE value
+    $request->cookies->get('PHPSESSID');
+
+    // retrieves an HTTP request header, with normalized, lowercase keys
+    $request->headers->get('host');
+    $request->headers->get('content_type');
+}	
