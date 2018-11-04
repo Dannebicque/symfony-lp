@@ -173,9 +173,13 @@ Ici on va récupérer le template présent dans templates/default/index.html.twi
 	
 ## Manipuler les requests
 
-The Request and Response Object¶
-As mentioned earlier, Symfony will pass the Request object to any controller argument that is type-hinted with the Request class:
+L'objet "request" contient toutes les données envoyées par l'utilisateur (formulaire, ...), mais aussi les données envoyées par le navigateur.
 
+En passant en paramètre un objet de type Request, on peut le manipuler selon les méthodes ci-dessous.
+
+*Passer un objet en paramètre de cette manière est ce que l'on nomme de l'injection de dépendance. Le lien est fait automatiquement par Symfony grâce au mécanisme d'autowiring.*
+
+```
 use Symfony\Component\HttpFoundation\Request;
 
 public function index(Request $request)
@@ -200,4 +204,5 @@ public function index(Request $request)
     // retrieves an HTTP request header, with normalized, lowercase keys
     $request->headers->get('host');
     $request->headers->get('content_type');
-}	
+}
+```	
