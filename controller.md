@@ -1,0 +1,172 @@
+# Controller et Routes
+
+* [Présentation](#prsentation)
+* [Structures d'une route](#structures-dune-route)
+* [Annotations](#annotations)
+* [Routes et paramètres](#routes-et-paramtres)
+* [Génération d'url](#gnration-durl)
+* [Controller &amp; Action](#controller)
+* [Response](#response)
+* [Exercice 2](#exercice-2)
+
+## Présentation
+
+**Une route permet de diriger une url (ou un pattern d'url) vers une méthode de controller appelée Action.**
+
+[La documentation officielle de Symfony sur les routes](https://symfony.com/doc/current/routing.html) et [La documentation officielle de Symfony sur les controllers](https://symfony.com/doc/current/controller.html)
+
+Il est possible de décrire des routes selon les formats de fichiers : XML, JSON, Classe PHP et en annotation. Pour plus de commodité nous utiliserons **les annotations**.
+
+
+## Structures d'une route
+
+* Une route peut être **constante** : /blog 
+
+ou **dynamique** :  /blog/{slug}
+Ici slug englobé de **{ }** devient une variable dynamique qui prend tous les caractères alphanumériques par exemple : 
+/blog/42
+/blog/lorem-ipsum
+/blog/titi-32_tata
+Ces 3 urls correspondent à la méthode ciblée par la route avec une variable slug différente.
+Cette variable peut être récupérée par le controller.
+
+````
+/**
+ * @Route("/blog/{slug}", name="article_blog")
+ */
+public function article($slug)
+{
+    ...
+}
+````
+
+* Une route est au minimum **un chemin (path) et un nom** 
+* Ces variables peut être mise par défaut grâce à "defaults"
+* Ces variables peuvent être soumises à une validation de format via "requirements"
+
+````
+/**
+ * @Route("/{id}", name="index", requirements={"id"="\d+"}, defaults={"id"=1})
+ */
+public function index($id)
+{
+    ...
+} 
+````
+
+* On peut également préfixer l'url avec le mot clé "prefix"
+* On peut définir un path différent en fonction de la locale
+* Vous pouvez cumuler plusieurs routes pour une méthode Action
+* On peut spécifier le moyen d'accès à une route (GET, POST, PUT, ...)
+
+## Annotations
+
+Pour pouvoir utiliser une annotation il faut :
+
+    use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+
+à ajouter après le namespace dans votre Controller.
+
+[Compléments sur les annotations](http://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/routing.html)
+
+## Routes et paramètres
+
+On définit une variable d'url via des accolades {ma_variable} :
+
+```
+/**
+* @Route("/page", defaults={"page": "nopage"}, name="blog_index")
+* @Route("/page/{page}", name="blog_index")
+*/
+public function indexAction($page)
+{
+	echo $page;
+} 
+```
+Ici on a deux routes pour la méthode indexAction avec une variable $page qui est à nopage si on accède à l'url /page.
+
+On peut cumuler plusieurs variables :
+```
+/**
+* @Route("/page/{page}/{subpage}", name="blog_index")
+*/
+public function indexAction($page, $subpage)
+{
+	echo $page.' '.$subpage;
+} 
+```
+
+## Génération d'url
+
+Pour générer une url en PHP on utilise : 
+```
+$this->generateurl('nom_de_la_route', $variables);
+```
+
+Ou sous TWIG on a deux fonctions : 
+```
+{{ path('nom_route', {'page': 'toto', 'vars2': 'titi'} ) }}
+
+{{ url('nom_route', {'page': 'toto', 'vars2': 'titi'} ) }}
+```
+
+
+## Controller
+
+Les routes redirigent vers une méthode de Controller (une action); un controller Symfony se nomme de la sorte :
+NomDuController où le suffixe **Controller** est obligatoire et le nom du fichier et de la classe est en **CamelCase**.
+
+Les différentes méthodes se nomment de la sorte : 
+
+**nomDeLaMethode** est lui en **miniCamelCase**
+
+*L'usage du suffixe Action n'est plus requis dans Symfony.*
+
+Dans le cas idéal, le controller doit contenir le minimum de code possible (20 lignes maximum selon les standards de Symfony). Il ne doit que faire le lien entre les différents éléments de l'application et une réponse.
+
+## Response
+
+Une Action renvoie toujours un type Response ; il existe plusieurs type de Response :
+JsonResponse, RedirectResponse, HttpResponse, BinaryFileResponse etc ...
+
+La plus utilisée est Response pour l'utiliser on va ajouter dans le "use" suivant : 
+
+```
+use Symfony\Component\HttpFoundation\Response; 
+```
+
+et dans la méthode action on : 
+
+```
+public function index(){
+	return new Response('Ma response');
+}
+```
+
+Affiche à l'écran Ma response. Dans l'état cette réponse n'est pas du HTML, car rien n'est précisé dans le retour de la méthode.
+
+Une méthode render() (définie quand la classe AbstractController dont votre controller doit hériter) permet aux Actions de récupérer une vue et d'afficher le contenu de la vue compilée avec les différentes variables envoyées.
+
+```
+/**
+ * @ Route("/", name="page")
+ */
+public function index() 
+{
+    // votre code
+    
+    return $this->render('default/index.html/twig', 
+        ['variable' => $variable]
+    );
+}
+```
+
+Ici on va récupérer le template présent dans templates/default/index.html.twig pour affecter la variable *variable*.
+
+## Exercice 2
+
+* Créer 2 nouvelles pages :
+	* http://localhost/time/now : afficher la date l'heure  minute et seconde
+	* http://localhost/color/blue : affiche "blue" à l'écran dynamiquement
+	* http://localhost/color/red : affiche "red" à l'écran dynamiquement
+	* Ajouter un menu avec des liens vers les 2 pages créées.
