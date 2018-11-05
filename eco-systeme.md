@@ -52,6 +52,18 @@ Cette notion a disparu avec la V4 de Symfony, mais il reste possible d'installer
    
    Symfony propose également de définir autant d'environnement que nécessaire afin d'avoir différentes configurations. Le changement d'un environnement à un autre se faire en modifiant la ligne suivante dans le fichier ".env" :
    
-   `````
+   ```
    ###> symfony/framework-bundle ###
    APP_ENV=dev
+   ```
+   
+## Profiler
+
+Le profiler est un outil puissant (et indispensable) pour débuger une application. Par défaut le profiler n'est pas installée. Pour l'ajouter il faut executer la commande suivante :
+```
+composer require profiler --dev
+```
+
+Le profiler est toujours visible en bas de la page en mode développement.
+
+IMAGE
