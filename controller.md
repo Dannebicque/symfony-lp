@@ -163,7 +163,7 @@ public function index()
 
 Ici on va récupérer le template présent dans templates/default/index.html.twig pour affecter la variable *variable*.
 
-## Exercice 2
+## Exercice 1
 
 * Créer 2 nouvelles pages :
 	* http://localhost/time/now : afficher la date l'heure  minute et seconde
@@ -205,4 +205,8 @@ public function index(Request $request)
     $request->headers->get('host');
     $request->headers->get('content_type');
 }
-```	
+```
+
+## Exercice 2
+
+Ajoutez une méthode (route, méthode et vue) qui permet de récupérer l'IP du client. On peut utiliser la méthode getClientIp() de l'objet request.
