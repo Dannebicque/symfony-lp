@@ -1,11 +1,18 @@
 # Vues - TWIG
 
 * [Présentation](#affichage)
+* [Exemple](#exemple)
 * [Affichage](#affichage)
+* [Variables](#variables)
 * [Logique](#logique)
+* [Tests](#tests)
+* [Boucles](#boucles)
 * [Héritage](#héritage)
-* [Exos 3](#exos-3)
-
+* [Exos 1](#exos-1)
+* [Inclusions](#inclusions)
+* [Filtres](#filtres)
+* [Assets](#assets)
+* [Exercice 2](#exercice-2)
 
 ## Présentation
 
@@ -234,4 +241,4 @@ Vous trouverez les éléments sur WebPack-Encore ici : [https://symfony.com/doc/
 
 ## Exercice 2
 
-Modifiez le code précédemment écrit pour manipuler des assets directement dans votre projet. Vous intégrer une image de votre choix et Bootstrap en version locale (supprimer toutes les dépendances aux CDN).
+* Modifiez le code précédemment écrit pour manipuler des assets directement dans votre projet. Vous intégrer une image de votre choix et Bootstrap en version locale (supprimer toutes les dépendances aux CDN).
