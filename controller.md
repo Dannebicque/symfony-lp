@@ -7,6 +7,8 @@
 * [Génération d'url](#gnration-durl)
 * [Controller &amp; Action](#controller)
 * [Response](#response)
+* [Exercice 1](#exercice-1)
+* [Request](#request)
 * [Exercice 2](#exercice-2)
 
 ## Présentation
