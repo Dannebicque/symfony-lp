@@ -157,7 +157,7 @@ public function index()
 {
     // votre code
     
-    return $this->render('default/index.html/twig', 
+    return $this->render('default/index.html.twig', 
         ['variable' => $variable]
     );
 }
