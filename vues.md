@@ -144,6 +144,20 @@ La boucle ci-dessous est une boucle qui parcours une "collection" users (l'équi
 </ul>
 ```
 
+Dans le cadre d'une boucle TWIG propose une variable nommée loop qui permet d'avoir des informations sur la boucle :
+
+
+| Variable |	Description |
+|----------|-------------- |
+| loop.index	| The current iteration of the loop. (1 indexed) |
+| loop.index0	| The current iteration of the loop. (0 indexed) |
+| loop.revindex	| The number of iterations from the end of the loop (1 indexed) |
+| loop.revindex0 | The number of iterations from the end of the loop (0 indexed) |
+| loop.first	| True if first iteration |
+| | loop.last	| True if last iteration | 
+| loop.length	| The number of items in the sequence |
+| loop.parent	| The parent context |
+
 La boucle ci-dessous intégre un test. Ce qui simplifie l'écriture. Elle intégre également un else dans le cas ou la boucle ne ferait aucune itération. Il est possible d'utiliser le else sans le if et réciproquement.
 ```
 <ul>
