@@ -111,7 +111,21 @@ La relation OneToMany n'est pas obligatoire. Elle permet juste d'inverser la rel
 
 Dans ce cas, on fait apparaître un tableau contenant toutes les objets associés à cette relation (many).
 
-## OneToOne
+## Relation 1..1 (OneToOne)
+
+La relation 1..1 est peu utilisée mais permet une flexibilité en terme relationnelle très importante. Elle définit une dépendance unique entre 2 entités :
+
+Utilisateur -> Adresse
+Produit -> Image
+Commande -> Facture
+
+```
+/**
+ * @ORM\OneToOne(targetEntity="Address")
+ */
+private $address;
+
+```
 
 ## Relation N..N (ManyToMany)
 
@@ -120,3 +134,7 @@ Le fonctionnement est assez similaire à une relation ManyToOne/OneToMany, sauf 
 Cette relation va créer une nouvelle table, contenant les deux clés étrangères.
 
 ## Exercice
+
+Créer la liaison entre Post et Catégorie. Modifier la page de génération de Post pour créer un article "Post 3" avec la relation vers "Catégorie 1" ; ==> La catégorie de Post 3 sera Catégorie 1. Modifier la page avec tous les posts pour afficher la catégorie liée à l'article. Créer une page qui supprime "Post 1"
+
+En plus : Flash Messages https://symfony.com/blog/new-in-symfony-3-3-improved-flash-messages Essayer d'utiliser les flash messages Modifier l'entité Post pour ajouter un champ : "excerpt" de type text Créer le getter et setter et mettez à jour la base de données.
