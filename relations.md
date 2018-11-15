@@ -8,14 +8,115 @@
 
 ## Introduction
 
+Généralement les entités sont liées entre-elles. Et nous avons la notion de clé étrangère qui peut apparaître dans nos tables. Bien sûr il est possible de gérer cela avec Doctrine.
+
+Pour ce faire, il va falloir expliquer à Doctrine, les liens qui existent entre nos entités. Et Doctrine, se chargera de créer les clés étrangères où cela est nécessaire.
+
 [La documentation officielle de Symfony sur les relations/associations](https://symfony.com/doc/current/doctrine/associations.html)
 
 ## Relations
 
-## OneToMany
+Il existe les relations suivantes dans doctrine :
+
+* OneToMany (et son inverse ManyToOne)
+* ManyToMany
+* OneToOne
+
+Il existe également une notion très importante dans ces relations : **propriétaire** et **inverse**.
+
+### Propriétaire
+L'entité dite propriétaire contient la référence à l'autre entité et est gérée par défaut par Doctrine ; Aucune recherche particulière n'est à faire pour récupérer la relation propriétaire. (Commentaire vers Article, commentaire contiendra la relation vers article avec un champs article_id par exemple et on pourra récupérer la relation de la sorte : $com->article_id->title ).
+
+### Inverse
+L'inverse est la relation inverse. Il faudrait faire une recherche un peu plus complexe pour récupérer les relations (Article vers Commentaires avec un where par exemple).
+
+### Unidirectionnelle ou bidirectionnelle
+Enfin, une relation peut être unidirectionnelle ou bidirectionnelle. Les relations bidirectionnelles peuvent être gérées automatiquement par Symfony modifiant un peu les entités inverses avec *inversedBy* et *mappedBy*.
+
+Dans le cas d'une relation bidirectionnelle, il faut aussi explicité la relation dans l'entité inverse. La relation bidirectionnelle permet de faciliter la recherche d'élement en partant de l'inverse (Article vers Commentaires).
+
+## RELATION 1..N (ONETOMANY) ET N..1 (MANYTOONE)
+
+La relation 1..n définit une dépendance multiple entre 2 entités de sorte que la première peut être liée à plusieurs entités
+
+Prennons l'exemple des étudiants et des absences. Un étudiant peut avoir plusieurs (many) absences, mais une absence n'est associée qu'a un (one) seul étudiant.
+
+Cette relation peut donc se résumer à : plusieurs (many) absences pour un (one) étudiant, ou de manière équivalent un (one) étudiant pour plusieurs (many) absences.
+
+On se place prioritairement du coté du Many, et on doit écrire la relation ManyToOne. Elle est obligatoire pour définir la relation précédente.
+
+```
+class Absence
+{
+// ...
+
+/**
+* @ORM\ManyToOne(targetEntity="App\Entity\Etudiant")
+* @ORM\JoinColumn(nullable=true)
+*/
+private etudiant;
+...
+}
+```
+Le code précédent est le minimum pour définir une relation.
+
+On dit dans ce cas que Absence est propriétaire de la relation (toujours du coté du Many).
+
+La relation décrite précédemment est unidirectionnelle. Pour la rendre bidirectionnelle il faut décrire la relation dans l'entité etudiant (avec la relation inverse OneToMany).
+
+Le code de Etudiant devient
+
+```
+class Absence
+{
+// ...
+
+/**
+* @ORM\ManyToOne(targetEntity="App\Entity\Etudiant", inversedBy="absences")
+* @ORM\JoinColumn(nullable=true)
+*/
+private $etudiant;
+...
+}
+```
+
+Le code de etudiant sera :
+```
+class Etudiant
+{
+    // ...
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Absence", mappedBy="etudiant")
+     */
+    private $absences;
+    ...
+
+    public function __construct()
+    {
+        $this->absences = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection|Absence[]
+     */
+    public function getAbsences()
+    {
+        return $this->absences;
+    }
+}
+```
+
+La relation OneToMany n'est pas obligatoire. Elle permet juste d'inverser la relation, et de rendre la manipulation plus simple.
+
+Dans ce cas, on fait apparaître un tableau contenant toutes les objets associés à cette relation (many).
 
 ## OneToOne
 
-## ManyToMany
+## Relation N..N (ManyToMany)
+
+Le fonctionnement est assez similaire à une relation ManyToOne/OneToMany, sauf que cette relation est forcément bidirectionnelle. Il faut décrire le comportement dans les deux entités et choisir, selon la logique désirée, qui sera la relation propriétaire (inversedBy) de la relation inverse (mappedBy).
+
+Cette relation va créer une nouvelle table, contenant les deux clés étrangères.
 
 ## Exercice
