@@ -133,8 +133,60 @@ Le fonctionnement est assez similaire à une relation ManyToOne/OneToMany, sauf 
 
 Cette relation va créer une nouvelle table, contenant les deux clés étrangères.
 
+## Manipulation de la console
+
+La console (make:entity), nous facilite la création des relations. En créant ou en modifiant l'entité, il est possible d'ajouter le champs contenant la relation. Pour cela le type sera **"relation"**. La console vous demandera de préciser l'entitée liée, ainsi que le type de relation. Vous pourrez ensuite selon la relation choisie) préciser la relation inverse, de manière optionnelle ou obligatoire.
+
+**Attention, il est d'usage de lancer la console dans l'entité qui porte la relation (propriétaire), ou l'entité qui recevra la clé étrangère.
+
+```
+php bin/console make:entity
+
+Class name of the entity to create or update (e.g. BraveChef):
+> Product
+
+ to stop adding fields):
+> category
+
+Field type (enter ? to see all types) [string]:
+> relation
+
+What class should this entity be related to?:
+> Category
+
+Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]:
+> ManyToOne
+
+Is the Product.category property allowed to be null (nullable)? (yes/no) [yes]:
+> no
+
+Do you want to add a new property to Category so that you can access/update
+getProducts()? (yes/no) [yes]:
+> yes
+
+New field name inside Category [products]:
+> products
+
+Do you want to automatically delete orphaned App\Entity\Product objects
+(orphanRemoval)? (yes/no) [no]:
+> no
+
+ to stop adding fields):
+>
+(press enter again to finish)
+```
+
+Comme après chaque modification, il faudra générer le fichier de migration, et appliquer les modifications sur la base de données.
+
 ## Exercice
 
-Créer la liaison entre Post et Catégorie. Modifier la page de génération de Post pour créer un article "Post 3" avec la relation vers "Catégorie 1" ; ==> La catégorie de Post 3 sera Catégorie 1. Modifier la page avec tous les posts pour afficher la catégorie liée à l'article. Créer une page qui supprime "Post 1"
+* Créer la liaison entre Post et Catégorie. 
+* Modifier la page de génération de Post pour créer un article "Post 3" avec la relation vers "Catégorie 1"
+    * La catégorie de Post 3 sera Catégorie 1. 
+* Modifier la page avec tous les posts pour afficher la catégorie liée à l'article. 
+* Créer une page qui supprime "Post 1"
 
-En plus : Flash Messages https://symfony.com/blog/new-in-symfony-3-3-improved-flash-messages Essayer d'utiliser les flash messages Modifier l'entité Post pour ajouter un champ : "excerpt" de type text Créer le getter et setter et mettez à jour la base de données.
+**En plus : Flash Messages** 
+[https://symfony.com/doc/current/controller.html#flash-messages](https://symfony.com/doc/current/controller.html#flash-messages) 
+
+* Essayer d'utiliser les flash messages.
