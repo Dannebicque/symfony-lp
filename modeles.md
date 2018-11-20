@@ -314,7 +314,7 @@ $this->getDoctrine()->getRepository(Post::class)->maRequete('test');
 	* content text
 	* enable boolean
 
-*Créer une entité "PostCategory" avec :
+* Créer une entité "PostCategory" avec :
 	* title string 255
 
 * Créer une page qui va sauvegarder une catégorie avec le nom "Catégorie 1".
