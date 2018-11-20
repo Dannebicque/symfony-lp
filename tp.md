@@ -2,9 +2,9 @@
 
 * [Présentation](#prsentation)
 * [Notation](#notation)
-* [TP1](#tp-1)
-* [TP2](#tp-2)
-* [TP3](#tp-3)
+* [Première partie](#tp-1)
+* [Deuxième partie](#tp-2)
+* [Troisième partie](#tp-3)
 
 ## Présentation
 
