@@ -8,7 +8,7 @@
 
 ## Introduction
 
-Généralement les entités sont liées entre-elles. Et nous avons la notion de clé étrangère qui peut apparaître dans nos tables. Bien sûr il est possible de gérer cela avec Doctrine.
+Il est fréquent que les entités soient liées entre-elles. Et nous avons la notion de clé étrangère qui peut apparaître dans nos tables. Il est possible (voire nécessaire) de gérer cela avec Doctrine.
 
 Pour ce faire, il va falloir expliquer à Doctrine, les liens qui existent entre nos entités. Et Doctrine, se chargera de créer les clés étrangères où cela est nécessaire.
 
@@ -24,13 +24,15 @@ Il existe les relations suivantes dans doctrine :
 
 Il existe également une notion très importante dans ces relations : **propriétaire** et **inverse**.
 
-### Propriétaire
-L'entité dite propriétaire contient la référence à l'autre entité et est gérée par défaut par Doctrine ; Aucune recherche particulière n'est à faire pour récupérer la relation propriétaire. (Commentaire vers Article, commentaire contiendra la relation vers article avec un champs article_id par exemple et on pourra récupérer la relation de la sorte : $com->article_id->title ).
+### Propriétaire et inverse
 
-### Inverse
-L'inverse est la relation inverse. Il faudrait faire une recherche un peu plus complexe pour récupérer les relations (Article vers Commentaires avec un where par exemple).
+Dans une relation entre deux entités, il y a toujours une entité dite propriétaire, et une dite inverse. L'entité propriétaire est celle qui contient la référence à l'autre entité.
+
+Prenons un exemple simple, les commentaires de nos annonces. En SQL pur, vous disposez de la *tablecomment* et de la *tableadvert*. Pour créer une relation entre ces deux tables, vous allez mettre naturellement une colonne *advert_id* dans la *tablecomment*. La *tablecomment* est donc propriétaire de la relation, car c'est elle qui contient la colonne de liaison *advert_id*. 
+
 
 ### Unidirectionnelle ou bidirectionnelle
+
 Enfin, une relation peut être unidirectionnelle ou bidirectionnelle. Les relations bidirectionnelles peuvent être gérées automatiquement par Symfony modifiant un peu les entités inverses avec *inversedBy* et *mappedBy*.
 
 Dans le cas d'une relation bidirectionnelle, il faut aussi explicité la relation dans l'entité inverse. La relation bidirectionnelle permet de faciliter la recherche d'élement en partant de l'inverse (Article vers Commentaires).
