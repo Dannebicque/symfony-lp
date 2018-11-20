@@ -307,16 +307,20 @@ $this->getDoctrine()->getRepository(Post::class)->maRequete('test');
 
 ## Exercice
 
-Créer une entité "Post" avec :
+* Créer une entité "Post" avec :
 
-* title string 255
-* dateCreated datetime
-* content text
-* enable boolean
+	* title string 255
+	* dateCreated datetime
+	* content text
+	* enable boolean
 
-Créer une entité "PostCategory" avec :
-* title string 255
+* Créer une entité "PostCategory" avec :
+	* title string 255
 
-Créer une page qui va sauvegarder une catégorie avec le nom "Catégorie 1" Créer une page qui va sauvegarder un post avec le nom Post 1 à la date courante avec comme contenu Lorem ipsum et en enable à true. Créer une page qui va afficher le titre de la catégorie en id 1 et le post en id 1.
+* Créer une page qui va sauvegarder une catégorie avec le nom "Catégorie 1".
+* Créer une page qui va sauvegarder un post avec le nom Post 1 à la date courante avec comme contenu Lorem ipsum et en enable à true. 
+* Créer une page qui va afficher le titre de la catégorie en id 1 et le post en id 1.
 
-Créer un nouveau post identique au premier en changeant le titre. Créer une page qui affiche la totalité des entités Post. Créer une page qui récupère le Post avec le Titre "Post 1"
+* Créer un nouveau post identique au premier en changeant le titre. 
+* Créer une page qui affiche la totalité des entités Post. 
+* Créer une page qui récupère le Post avec le Titre "Post 1"
