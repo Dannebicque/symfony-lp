@@ -237,8 +237,8 @@ public function newAction(Request $request){
 
 ### Validation
 
-Les validations permettent de gérer des contraintes au niveau du formulaire ; Par exemple pour pourra forcer en PHP que le champs email soit bien un email ou que tel champs ne peut pas dépasser tel nombre de caractères, vous trouverez la liste des contraintes basiques sur site site de symfony : 
-http://symfony.com/doc/3.4/validation.html
+Les validations permettent de gérer des contraintes au niveau du formulaire ; Par exemple pour pourra forcer en PHP que le champs email soit bien un email ou que tel champs ne peut pas dépasser tel nombre de caractères, vous trouverez la liste des contraintes basiques sur site site de symfony : [http://symfony.com/doc/4.1/validation.html](http://symfony.com/doc/4.1/validation.html)
+
 Ces contraintes ou assert peuvent être gérée de plusieurs façon XML, JSON, YAML, PHP ou en annotation dans notre cas; il faudra utiliser cette ligne tout en haut du controller : 
 
 ```	
@@ -273,8 +273,7 @@ Ici on vérifiera que le champs name doit être rempli.
 
 ### Génération de CRUD
 
-Ce que nous venons de faire manuellement peut être généré en ligne de commande par Symfony **:')**
-via la commande : 
+Ce que nous venons de faire manuellement peut être généré en ligne de commande par Symfony via la commande : 
 
 ```	
 bin/console make:crud 

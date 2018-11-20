@@ -137,7 +137,7 @@ Cette relation va créer une nouvelle table, contenant les deux clés étrangèr
 
 La console (make:entity), nous facilite la création des relations. En créant ou en modifiant l'entité, il est possible d'ajouter le champs contenant la relation. Pour cela le type sera **"relation"**. La console vous demandera de préciser l'entitée liée, ainsi que le type de relation. Vous pourrez ensuite selon la relation choisie) préciser la relation inverse, de manière optionnelle ou obligatoire.
 
-**Attention, il est d'usage de lancer la console dans l'entité qui porte la relation (propriétaire), ou l'entité qui recevra la clé étrangère.
+**Attention, il est d'usage de lancer la console dans l'entité qui porte la relation (propriétaire), ou l'entité qui recevra la clé étrangère.**
 
 ```
 php bin/console make:entity
