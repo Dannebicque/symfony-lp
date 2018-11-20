@@ -14,9 +14,12 @@ Réaliser un forum, en utilisant Symfony. Votre forum devra intégrer les foncti
 * Création de message dans les catégories du forum
 * Possibilité de répondre à un message
 * Une recherche simple
-* Administration : Création des catégories et sous-catégories, administration des messages.
+* Liste des catégories, sous catégories, et messages associés
+* Administration : Création des catégories et sous-catégories, administration des messages
 * Il y aura 3 niveaux d'accès : Administrateur, modérateur (possibilité de supprimer ou déplacer un message), membre (possibilité de créer un message ou de modifier ses messages)
 * Un message pourra intégrer des fichiers (images a minima)
+
+**Vous êtes libre de la structure, de la mise en page et des données de votre base de données, mais vous devez répondre à la commande d'un forum**
 
 ## Notation
 
