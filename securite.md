@@ -148,6 +148,33 @@ leur il est possible d'utiliser directement l'instruction :
 $user = $this->getUser();
 ````
 
+### Gérer la déconnexion
+
+Sur la même idée que pour la connexion, il est possible de gérer la déconnexion. Pour cela, dans le fichier security.yaml, il faut définir le path (la route) pour la méthode qui gére la déconnexion, et la cible (une route, optionnelle), une fois la déconnexion réussie.
+
+````
+firewalls:
+     main:
+         # ...
+         logout:
+             path:   app_logout
+             # where to redirect after logout
+             # target: app_any_route
+````
+
+La méthode dans le contrôleur peut se résumer à :
+
+````
+/**
+ * @Route("/deconnexion", name="app_logout")
+ */
+public function logout(): void
+{
+}
+````
+
+Cette méthode qui ne retourne rien, permet la déconnexion, et la redirection se fait via le target définit dans security.yaml.
+
 ## Exercice
 
 Mettre en place une classe User, et créer le formulaire de connexion en suivant la documentation. Filtrer la partie création de catégorie uniquement à des utilisateurs ayant le rôle ROLE_ADMIN.
