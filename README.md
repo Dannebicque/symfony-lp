@@ -13,6 +13,7 @@ La base de ce cours est issue de [https://github.com/moshifr/sf_lp2018/blob/mast
 * [Relations entre entités](relations.md)
 * [FORM](form.md)
 * [Securité](securite.md)
+* [Bundles](bundles.md)
 * [TP](tp.md)
 
 
