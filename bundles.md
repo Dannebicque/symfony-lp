@@ -20,3 +20,9 @@ Avec Symfony 4 l'installation d'un Bundle est devenue très simple (notamment si
 Liste des recipes officielles pour Flex et Symfony [https://github.com/symfony/recipes](https://github.com/symfony/recipes), et le dépôt des recipes "non-officielles" [https://github.com/symfony/recipes-contrib](https://github.com/symfony/recipes-contrib)
 
 Il suffit, en général, d'installer le bundle avec Composer pour que ce dernier installe et configure les éléments.
+
+## Cas de VichUploadBundle
+
+Ce bundle permet la gestion de l'upload en lien avec Doctrine.
+
+[https://github.com/dustin10/VichUploaderBundle](https://github.com/dustin10/VichUploaderBundle)
