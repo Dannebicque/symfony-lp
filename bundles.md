@@ -2,7 +2,7 @@
 
 Symfony dispose d'une large communauté très active qui contribue à développer des "bundles" afin de venir enrichir le framework avec des fonctionnalités récurrentes : Back office, gestion d'upload, ...
 
-Il existe un site regroupant les bundles [http://knpbundles.com/](http://knpbundles.com/).
+Il existe un site regroupant les bundles [https://flex.symfony.com/](https://flex.symfony.com/) (ou pour les versions précédentes de Symfony [http://knpbundles.com/](http://knpbundles.com/)).
 
 Parmis quelques bundles intéressants on peut citer :
 
