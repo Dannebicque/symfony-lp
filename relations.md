@@ -1,14 +1,14 @@
 # Relations entre entités
 
-* [Relations](#relations)
-* [OneToMany (1..n) - ManyToOne (n..1)](#onetomany-1n---manytoone-n1)
-* [OneToOne  1..1](#onetoone--11)
-* [ManyToMany (n..n)](#manytomany-nn)
-* [Exercice](#exo-5)
+* [Relations](relations.md#relations)
+* [OneToMany \(1..n\) - ManyToOne \(n..1\)](relations.md#onetomany-1n---manytoone-n1)
+* [OneToOne  1..1](relations.md#onetoone--11)
+* [ManyToMany \(n..n\)](relations.md#manytomany-nn)
+* [Exercice](relations.md#exo-5)
 
 ## Introduction
 
-Il est fréquent que les entités soient liées entre-elles. Et nous avons la notion de clé étrangère qui peut apparaître dans nos tables. Il est possible (voire nécessaire) de gérer cela avec Doctrine.
+Il est fréquent que les entités soient liées entre-elles. Et nous avons la notion de clé étrangère qui peut apparaître dans nos tables. Il est possible \(voire nécessaire\) de gérer cela avec Doctrine.
 
 Pour ce faire, il va falloir expliquer à Doctrine, les liens qui existent entre nos entités. Et Doctrine, se chargera de créer les clés étrangères où cela est nécessaire.
 
@@ -18,7 +18,7 @@ Pour ce faire, il va falloir expliquer à Doctrine, les liens qui existent entre
 
 Il existe les relations suivantes dans doctrine :
 
-* OneToMany (et son inverse ManyToOne)
+* OneToMany \(et son inverse ManyToOne\)
 * ManyToMany
 * OneToOne
 
@@ -28,26 +28,25 @@ Il existe également une notion très importante dans ces relations : **proprié
 
 Dans une relation entre deux entités, il y a toujours une entité dite propriétaire, et une dite inverse. L'entité propriétaire est celle qui contient la référence à l'autre entité.
 
-Prenons un exemple simple, les commentaires de nos annonces. En SQL pur, vous disposez de la *tablecomment* et de la *tableadvert*. Pour créer une relation entre ces deux tables, vous allez mettre naturellement une colonne *advert_id* dans la *tablecomment*. La *tablecomment* est donc propriétaire de la relation, car c'est elle qui contient la colonne de liaison *advert_id*. 
-
+Prenons un exemple simple, les commentaires de nos annonces. En SQL pur, vous disposez de la _tablecomment_ et de la _tableadvert_. Pour créer une relation entre ces deux tables, vous allez mettre naturellement une colonne _advert\_id_ dans la _tablecomment_. La _tablecomment_ est donc propriétaire de la relation, car c'est elle qui contient la colonne de liaison _advert\_id_.
 
 ### Unidirectionnelle ou bidirectionnelle
 
-Enfin, une relation peut être unidirectionnelle ou bidirectionnelle. Les relations bidirectionnelles peuvent être gérées automatiquement par Symfony modifiant un peu les entités inverses avec *inversedBy* et *mappedBy*.
+Enfin, une relation peut être unidirectionnelle ou bidirectionnelle. Les relations bidirectionnelles peuvent être gérées automatiquement par Symfony modifiant un peu les entités inverses avec _inversedBy_ et _mappedBy_.
 
-Dans le cas d'une relation bidirectionnelle, il faut aussi explicité la relation dans l'entité inverse. La relation bidirectionnelle permet de faciliter la recherche d'élement en partant de l'inverse (Article vers Commentaires).
+Dans le cas d'une relation bidirectionnelle, il faut aussi explicité la relation dans l'entité inverse. La relation bidirectionnelle permet de faciliter la recherche d'élement en partant de l'inverse \(Article vers Commentaires\).
 
-## RELATION 1..N (ONETOMANY) ET N..1 (MANYTOONE)
+## RELATION 1..N \(ONETOMANY\) ET N..1 \(MANYTOONE\)
 
 La relation 1..n définit une dépendance multiple entre 2 entités de sorte que la première peut être liée à plusieurs entités
 
-Prennons l'exemple des étudiants et des absences. Un étudiant peut avoir plusieurs (many) absences, mais une absence n'est associée qu'a un (one) seul étudiant.
+Prennons l'exemple des étudiants et des absences. Un étudiant peut avoir plusieurs \(many\) absences, mais une absence n'est associée qu'a un \(one\) seul étudiant.
 
-Cette relation peut donc se résumer à : plusieurs (many) absences pour un (one) étudiant, ou de manière équivalent un (one) étudiant pour plusieurs (many) absences.
+Cette relation peut donc se résumer à : plusieurs \(many\) absences pour un \(one\) étudiant, ou de manière équivalent un \(one\) étudiant pour plusieurs \(many\) absences.
 
 On se place prioritairement du coté du Many, et on doit écrire la relation ManyToOne. Elle est obligatoire pour définir la relation précédente.
 
-```
+```text
 class Absence
 {
 // ...
@@ -60,15 +59,16 @@ private etudiant;
 ...
 }
 ```
+
 Le code précédent est le minimum pour définir une relation.
 
-On dit dans ce cas que Absence est propriétaire de la relation (toujours du coté du Many).
+On dit dans ce cas que Absence est propriétaire de la relation \(toujours du coté du Many\).
 
-La relation décrite précédemment est unidirectionnelle. Pour la rendre bidirectionnelle il faut décrire la relation dans l'entité etudiant (avec la relation inverse OneToMany).
+La relation décrite précédemment est unidirectionnelle. Pour la rendre bidirectionnelle il faut décrire la relation dans l'entité etudiant \(avec la relation inverse OneToMany\).
 
 Le code de Etudiant devient
 
-```
+```text
 class Absence
 {
 // ...
@@ -83,7 +83,8 @@ private $etudiant;
 ```
 
 Le code de etudiant sera :
-```
+
+```text
 class Etudiant
 {
     // ...
@@ -111,37 +112,34 @@ class Etudiant
 
 La relation OneToMany n'est pas obligatoire. Elle permet juste d'inverser la relation, et de rendre la manipulation plus simple.
 
-Dans ce cas, on fait apparaître un tableau contenant toutes les objets associés à cette relation (many).
+Dans ce cas, on fait apparaître un tableau contenant toutes les objets associés à cette relation \(many\).
 
-## Relation 1..1 (OneToOne)
+## Relation 1..1 \(OneToOne\)
 
 La relation 1..1 est peu utilisée mais permet une flexibilité en terme relationnelle très importante. Elle définit une dépendance unique entre 2 entités :
 
-Utilisateur -> Adresse
-Produit -> Image
-Commande -> Facture
+Utilisateur -&gt; Adresse Produit -&gt; Image Commande -&gt; Facture
 
-```
+```text
 /**
  * @ORM\OneToOne(targetEntity="Address")
  */
 private $address;
-
 ```
 
-## Relation N..N (ManyToMany)
+## Relation N..N \(ManyToMany\)
 
-Le fonctionnement est assez similaire à une relation ManyToOne/OneToMany, sauf que cette relation est forcément bidirectionnelle. Il faut décrire le comportement dans les deux entités et choisir, selon la logique désirée, qui sera la relation propriétaire (inversedBy) de la relation inverse (mappedBy).
+Le fonctionnement est assez similaire à une relation ManyToOne/OneToMany, sauf que cette relation est forcément bidirectionnelle. Il faut décrire le comportement dans les deux entités et choisir, selon la logique désirée, qui sera la relation propriétaire \(inversedBy\) de la relation inverse \(mappedBy\).
 
 Cette relation va créer une nouvelle table, contenant les deux clés étrangères.
 
 ## Manipulation de la console
 
-La console (make:entity), nous facilite la création des relations. En créant ou en modifiant l'entité, il est possible d'ajouter le champs contenant la relation. Pour cela le type sera **"relation"**. La console vous demandera de préciser l'entitée liée, ainsi que le type de relation. Vous pourrez ensuite selon la relation choisie) préciser la relation inverse, de manière optionnelle ou obligatoire.
+La console \(make:entity\), nous facilite la création des relations. En créant ou en modifiant l'entité, il est possible d'ajouter le champs contenant la relation. Pour cela le type sera **"relation"**. La console vous demandera de préciser l'entitée liée, ainsi que le type de relation. Vous pourrez ensuite selon la relation choisie\) préciser la relation inverse, de manière optionnelle ou obligatoire.
 
-**Attention, il est d'usage de lancer la console dans l'entité qui porte la relation (propriétaire), ou l'entité qui recevra la clé étrangère.**
+**Attention, il est d'usage de lancer la console dans l'entité qui porte la relation \(propriétaire\), ou l'entité qui recevra la clé étrangère.**
 
-```
+```text
 php bin/console make:entity
 
 Class name of the entity to create or update (e.g. BraveChef):
@@ -184,11 +182,11 @@ Comme après chaque modification, il faudra générer le fichier de migration, e
 
 * Créer la liaison entre Post et Catégorie. 
 * Modifier la page de génération de Post pour créer un article "Post 3" avec la relation vers "Catégorie 1"
-    * La catégorie de Post 3 sera Catégorie 1. 
+  * La catégorie de Post 3 sera Catégorie 1. 
 * Modifier la page avec tous les posts pour afficher la catégorie liée à l'article. 
 * Créer une page qui supprime "Post 1"
 
-**En plus : Flash Messages** 
-[https://symfony.com/doc/current/controller.html#flash-messages](https://symfony.com/doc/current/controller.html#flash-messages) 
+**En plus : Flash Messages** [https://symfony.com/doc/current/controller.html\#flash-messages](https://symfony.com/doc/current/controller.html#flash-messages)
 
 * Essayer d'utiliser les flash messages.
+

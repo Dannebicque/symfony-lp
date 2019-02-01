@@ -1,45 +1,44 @@
 # Modèles - Entités - ORM
 
-* [Introduction](#introduction-1)
-* [Mise en application](#mise-en-application)
-* [Annotations](#annotations-1)
-* [Modifications de champs et lien base de données](#modifications-de-champs-et-lien-base-de-données)
-* [ORM](#orm-1)
-* [Recherche d'entité](#recherche-dentité)
-* [Exercice](#exo)
+* [Introduction](modeles.md#introduction-1)
+* [Mise en application](modeles.md#mise-en-application)
+* [Annotations](modeles.md#annotations-1)
+* [Modifications de champs et lien base de données](modeles.md#modifications-de-champs-et-lien-base-de-données)
+* [ORM](modeles.md#orm-1)
+* [Recherche d'entité](modeles.md#recherche-dentité)
+* [Exercice](modeles.md#exo)
 
 ## Introduction
 
-Dans Symfony la notion de modèle se retrouve sous la forme (entre autre) d'une **Entité**. Une entité est une **classe PHP**, qui **peut** être connectée à une table de votre base de données via l'ORM. Lorsqu'une entité est liée à une table, via l'ORM, il y a en général un fichier "repository" associé. Un repository permet la génération de requêtes simples ou complexes et dont le développeur peut modifier à volonté.
+Dans Symfony la notion de modèle se retrouve sous la forme \(entre autre\) d'une **Entité**. Une entité est une **classe PHP**, qui **peut** être connectée à une table de votre base de données via l'ORM. Lorsqu'une entité est liée à une table, via l'ORM, il y a en général un fichier "repository" associé. Un repository permet la génération de requêtes simples ou complexes et dont le développeur peut modifier à volonté.
 
-Un ORM (Object Relation Mapper) permet de gérer manipuler et de récupérer des tables de données de la même façon qu'un objet quelconque, donc en gardant le langage PHP. Plus besoin de requête MySQL, PostgresSQL ou autre.
+Un ORM \(Object Relation Mapper\) permet de gérer manipuler et de récupérer des tables de données de la même façon qu'un objet quelconque, donc en gardant le langage PHP. Plus besoin de requête MySQL, PostgresSQL ou autre.
 
 Symfony utilise Doctrine comme ORM dans son système par défaut. Nous allons utiliser Doctrine mais vous pouvez utiliser d'autres systèmes si vous le souhaitez. Doctrine peut-être géré de plusieurs façon : XML, JSON, YAML, PHP et en Annotation nous allons utiliser ce dernier format de données.
 
-[La documentation officielle de Symfony sur l'ORM Doctrine](https://symfony.com/doc/current/doctrine.html)
-[La document officielle de Doctrine](https://www.doctrine-project.org/projects/orm.html)
+[La documentation officielle de Symfony sur l'ORM Doctrine](https://symfony.com/doc/current/doctrine.html) [La document officielle de Doctrine](https://www.doctrine-project.org/projects/orm.html)
 
-Vous êtes libre d'écrire le code qui permet le traitement métiers en dehors des entités et d'avoir votre propre logique d'organisation. 
+Vous êtes libre d'écrire le code qui permet le traitement métiers en dehors des entités et d'avoir votre propre logique d'organisation.
 
 ## Mise en application
 
 ### Configuration
-Comme à chaque fois, il est d'abord nécessaire d'installer les bundles nécessaires pour manipuler la base de données avec un ORM.
-Il vous faut donc executer la commande ci_dessous :
 
-```
+Comme à chaque fois, il est d'abord nécessaire d'installer les bundles nécessaires pour manipuler la base de données avec un ORM. Il vous faut donc executer la commande ci\_dessous :
+
+```text
 composer require symfony/orm-pack
 ```
 
 On va également installer, si vous ne l'avez pas encore fait, le bundle "maker" qui contient des outils pour générer du code sous Symfony grâce à la console.
 
-```
+```text
 composer require symfony/maker-bundle --dev
 ```
 
 Une fois ces deux éléments installés, il faut configurer la connexion à la base de données. Pour ce faire, il faut éditer le fichier .env à la rachine de votre projet, qui doit normalement contenir une ligne d'exemple.
 
-```
+```text
 # .env
 
 # customize this line!
@@ -50,8 +49,10 @@ DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name"
 ```
 
 ### Création de la base de données
+
 Une fois le fichier à jour avec vos données, vous pouvez créer votre base de données depuis la console.
-```
+
+```text
 php bin/console doctrine:database:create
 ```
 
@@ -59,27 +60,28 @@ Les modificiations de structure de votre base de données devront être réalis�
 
 ### Création d'une entité liée à une table
 
-Utilisez la commande make:entity (qui est dans le bundle maker) pour avoir une série de question vous permettant de créer votre entité avec l'utilisation de l'ORM Doctrine. Vous pouvez créer une nouvelle entité ou modifier (ajouter des champs)  une entité déjà existante en saisissant son nom.
+Utilisez la commande make:entity \(qui est dans le bundle maker\) pour avoir une série de question vous permettant de créer votre entité avec l'utilisation de l'ORM Doctrine. Vous pouvez créer une nouvelle entité ou modifier \(ajouter des champs\) une entité déjà existante en saisissant son nom.
 
-```
+```text
 php bin/console make:entity
 ```
 
-Vous allez devoir répondre à une suite de question avec le nom de l'entité (par défaut cela donnera le nom de la table), et les champs à créer.
-Dans Symfony une entité possède toujours un champs id, qui est la clé primaire et qui est auto-incrémenté. Vous ne devez donc pas l'ajouter dans la console.
+Vous allez devoir répondre à une suite de question avec le nom de l'entité \(par défaut cela donnera le nom de la table\), et les champs à créer. Dans Symfony une entité possède toujours un champs id, qui est la clé primaire et qui est auto-incrémenté. Vous ne devez donc pas l'ajouter dans la console.
 
 Pour la création d'un champs, il vous faudra donner :
+
 * son type
 * sa taille le cas échéant
 * si ce champs peut être null
-* s'il doit être unique (index)
+* s'il doit être unique \(index\)
 
 Vous pouvez obtenir la liste des types supportés en tapant "?" à la question du type.
 
 Une fois terminé, le fichier d'Entité et le repository associé sont générés.
 
 Exemple dans la console :
-```
+
+```text
 php bin/console make:entity
 
 Class name of the entity to create or update:
@@ -113,7 +115,7 @@ Can this field be null in the database (nullable) (yes/no) [no]:
 
 Et le code de l'entité généré dans src/Entity/Product.php :
 
-```
+```text
 // src/Entity/Product.php
 namespace App\Entity;
 
@@ -153,12 +155,14 @@ class Product
 A ce stade l'entité est créé, mais n'existe pas dans la base de données. Il reste deux étapes à exécuter.
 
 La création d'un fichier de migration qui va contenir le code SQL a executer en fonction de votre SGBD.
-```
+
+```text
  php bin/console make:migration
 ```
 
 La mise à jour de votre base de données en fonction du fichier précédemment généré.
-```
+
+```text
 php bin/console doctrine:migrations:migrate
 ```
 
@@ -166,7 +170,7 @@ Si vous consultez votre PHPMyAdmin vous verrez la table apparaître.
 
 ## Modifications de champs et lien base de données
 
-Pour modifier des champs vous pouvez éditer directement le code généré dans la partie annotation: nom (par défaut le nom de la variable), taille, type.
+Pour modifier des champs vous pouvez éditer directement le code généré dans la partie annotation: nom \(par défaut le nom de la variable\), taille, type.
 
 Pour ajouter des champs il vous faut relancer la commande make:entity en remettant le nom de votre entité.
 
@@ -176,48 +180,47 @@ Après chaque modification ou ajout il faut de nouveau générer le fichier de m
 
 Une fois la base de données mise en place on va pouvoir insérer, modifier, supprimer et récupérer des informations de la base de données sans saisir de requêtes via des méthodes en initialisant l'entité fraichement créée :
 
-```
-
+```text
 /**
  * @Route("/est", name="test")
  */
 public function test()
 {
-	$post = new Post(); // initialise l'entité
-	$post->setTitle('Mon titre'); // on set les différents champs
-	$post->setEnable(true);
-	$post->setDateCreated(new \Datetime);
+    $post = new Post(); // initialise l'entité
+    $post->setTitle('Mon titre'); // on set les différents champs
+    $post->setEnable(true);
+    $post->setDateCreated(new \Datetime);
 
-	$em = $this->getDoctrine()->getManager(); // on récupère le gestionnaire d'entité
-	$em->persist( $post ); // on déclare une modification de type persist et la génération des différents liens entre entité
-	$em->flush(); // on effectue les différentes modifications sur la base de données 
-	// réelle
+    $em = $this->getDoctrine()->getManager(); // on récupère le gestionnaire d'entité
+    $em->persist( $post ); // on déclare une modification de type persist et la génération des différents liens entre entité
+    $em->flush(); // on effectue les différentes modifications sur la base de données 
+    // réelle
 
-	return new Response('Sauvegarde OK sur : ' . $post->getId() );
+    return new Response('Sauvegarde OK sur : ' . $post->getId() );
 }
 ```
 
-Il existe à la place de $em->persist, $em->remove($post); qui permettra de faire une suppression.
+Il existe à la place de $em-&gt;persist, $em-&gt;remove\($post\); qui permettra de faire une suppression.
 
 Ce dernier code effectue une création dans la base de données; pour une modification il suffit de modifier l'instantiation de l'entité de la sorte :
 
-```
+```text
 /**
  * @Route("/test/modification", name="test")
  */
 public function testModification()
 {
-	$post = $this->getDoctrine()->getRepository(Post::class)->find( 1 ); // récupération du post avec id 1 
-	$post->setTitle('Mon titre'); // on set les différents champs
-	$post->setEnable(true);
-	$post->setDateCreated(new \Datetime);
+    $post = $this->getDoctrine()->getRepository(Post::class)->find( 1 ); // récupération du post avec id 1 
+    $post->setTitle('Mon titre'); // on set les différents champs
+    $post->setEnable(true);
+    $post->setDateCreated(new \Datetime);
 
-	$em = $this->getDoctrine()->getManager(); // on récupère le gestionnaire d'entité
-	$em->persist( $post ); // on déclare une modification de type persist et la génération des différents liens entre entité
-	$em->flush(); // on effectue les différentes modifications sur la base de données 
-	// réelle
+    $em = $this->getDoctrine()->getManager(); // on récupère le gestionnaire d'entité
+    $em->persist( $post ); // on déclare une modification de type persist et la génération des différents liens entre entité
+    $em->flush(); // on effectue les différentes modifications sur la base de données 
+    // réelle
 
-	return new Response('Sauvegarde OK sur : ' . $post->getId() );
+    return new Response('Sauvegarde OK sur : ' . $post->getId() );
 }
 ```
 
@@ -227,60 +230,60 @@ ici on récupère le repository de Post et on récupère l'id 1 ; tout le restan
 
 Symfony et Doctrine proposes des requêts prédéfinies, qui répondent aux usages les plus courant.
 
-Si $em est le manager associé à une entité : 
-* $em->find( $id ); // on récupère qu'un seul élément de l'entité avec l'id $id;
-* $em->findAll(); // on récupère toutes les entrées de l'entité concernée
-* $em->findBy( $where, $order, $limit, $offset ); // on recherche avec le tableau $where on tri avec le tableau $order on récupère $limit éléments à partir de l'élément $offset.
-* $->findOneBy($where,$order); // on récupère le premier élément respectant le tableau $where et trié avec le tableau $order;
-* $->findByX($search) ; requêtes magiques où X correspond à n'importe quel champs défini dans votre entité
-* $->findOneByX($search) ; requêtes magiques où X correspond à n'importe quel champs défini dans votre entité
-Par exemple findBySlug( 'home' ); ou findByTitle('Bonjour); génèrera des requêtes de recherche automatiquement. Pour les requêtes avec plusieurs éléments il faudra faire une itération (foreach) ou lister les différents éléments.
+Si $em est le manager associé à une entité :
 
+* $em-&gt;find\( $id \); // on récupère qu'un seul élément de l'entité avec l'id $id;
+* $em-&gt;findAll\(\); // on récupère toutes les entrées de l'entité concernée
+* $em-&gt;findBy\( $where, $order, $limit, $offset \); // on recherche avec le tableau $where on tri avec le tableau $order on récupère $limit éléments à partir de l'élément $offset.
+* $-&gt;findOneBy\($where,$order\); // on récupère le premier élément respectant le tableau $where et trié avec le tableau $order;
+* $-&gt;findByX\($search\) ; requêtes magiques où X correspond à n'importe quel champs défini dans votre entité
+* $-&gt;findOneByX\($search\) ; requêtes magiques où X correspond à n'importe quel champs défini dans votre entité
+
+  Par exemple findBySlug\( 'home' \); ou findByTitle\('Bonjour\); génèrera des requêtes de recherche automatiquement. Pour les requêtes avec plusieurs éléments il faudra faire une itération \(foreach\) ou lister les différents éléments.
 
 Exemple
 
-```
+```text
 // Modifications multiples : 
 /**
  * @Route("/est", name="test")
  */
 public function test()
 {
-	$posts = $this->getDoctrine()->getRepository(Post::class)->findAll(); // récupération de tous les posts
-	$em = $this->getDoctrine()->getManager(); // on récupère le gestionnaire d'entité
-	
-	foreach($posts as $post)
-	{
-		$post->setTitle('Mon titre' . $post->getId() ); // on set les différents champs
-		$em->persist( $post ); // on déclare une modification de type persist et la
-		// génération des différents liens entre entité 
-	}
+    $posts = $this->getDoctrine()->getRepository(Post::class)->findAll(); // récupération de tous les posts
+    $em = $this->getDoctrine()->getManager(); // on récupère le gestionnaire d'entité
 
-	$em->flush(); // on effectue les différentes modifications sur la base de données 
-	// réelle
+    foreach($posts as $post)
+    {
+        $post->setTitle('Mon titre' . $post->getId() ); // on set les différents champs
+        $em->persist( $post ); // on déclare une modification de type persist et la
+        // génération des différents liens entre entité 
+    }
 
-	return new Response('Sauvegarde OK ');
+    $em->flush(); // on effectue les différentes modifications sur la base de données 
+    // réelle
+
+    return new Response('Sauvegarde OK ');
 }
 ```
-
 
 Si aucune reqûete prédéfinie ne correspond à vos besoin, vous pouvez bien sûr en créer une en passant par le répository.
 
 Vous pouvez également générer vos requêtes manuellement pour avoir une requête complexe et précise directement dans le controller mais idéalement il faudrait le placer dans le repository dédié.
 
-```
+```text
 // src/AppBundle/Repository/Post.php
 
 public function maRequete( $where )
 {
-	// avec querybuilder
+    // avec querybuilder
     $queryBuilder = $this->createQueryBuilder("p");
 
     $queryBuilder->where(' p.title like :w');
     $queryBuilder->setParameter(':w', '%'.$where.'%');
     $query = $queryBuilder->getQuery(); // on récupère la requêtes 
 
-   	return $query->getResult(); // on renvoie le résultat
+       return $query->getResult(); // on renvoie le résultat
 }
 //OU
  public function maRequeteSQL( $where )
@@ -300,7 +303,7 @@ public function maRequete( $where )
 
 Et l'utiliser dans votre controller
 
-```
+```text
 // src/AppBundle/Controller/DefautController
 $this->getDoctrine()->getRepository(Post::class)->maRequete('test');
 ```
@@ -308,19 +311,16 @@ $this->getDoctrine()->getRepository(Post::class)->maRequete('test');
 ## Exercice
 
 * Créer une entité "Post" avec :
-
-	* title string 255
-	* dateCreated datetime
-	* content text
-	* enable boolean
-
+  * title string 255
+  * dateCreated datetime
+  * content text
+  * enable boolean
 * Créer une entité "PostCategory" avec :
-	* title string 255
-
+  * title string 255
 * Créer une page qui va sauvegarder une catégorie avec le nom "Catégorie 1".
 * Créer une page qui va sauvegarder un post avec le nom Post 1 à la date courante avec comme contenu Lorem ipsum et en enable à true. 
 * Créer une page qui va afficher le titre de la catégorie en id 1 et le post en id 1.
-
-* Créer un nouveau post identique au premier en changeant le titre. 
+* Créer un nouveau post identique au premier en changeant le titre.
 * Créer une page qui affiche la totalité des entités Post. 
 * Créer une page qui récupère le Post avec le Titre "Post 1"
+
