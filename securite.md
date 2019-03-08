@@ -71,6 +71,15 @@ Il faut ensuite mettre à jour votre base de données, avec les commandes suivan
 bin/console make:migration
 bin/console doctrine:migrations:migrate
 ```
+### Créer la partie connexion
+
+Une nouvelle fois la console va nous permettre de dégrossir le travail et produire le contrôleur, le fichier de configuration et le formulaire de connexion.
+
+```text
+bin/console make:auth
+```
+
+Les étapes suivantes expliques ce qui a été créé.
 
 ### Partie "User Provider"
 
