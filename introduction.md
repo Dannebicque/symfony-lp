@@ -1,10 +1,5 @@
 # Introduction
 
-* [Présentation](introduction.md#presentation)
-* [Prérequis](introduction.md#prérequis)
-* [Organisation](introduction.md#objectif-de-ce-cours)
-* [Installation](introduction.md#installation)
-
 ## Présentation
 
 Découvrir et appréhender un framework PHP web.

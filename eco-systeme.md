@@ -1,27 +1,14 @@
 # Eco-Système de Symfony
 
-* [Composer](eco-systeme.md#composer)
-* [MVC](eco-systeme.md#mvc)
-* [Entité](eco-systeme.md#entité)
-* [ORM](eco-systeme.md#orm)
-* [Repository](eco-systeme.md#repository)
-* [YAML](eco-systeme.md#yaml)
-* [Annotation](eco-systeme.md#annotation)
-* [Route](eco-systeme.md#route)
-* [Bundle](eco-systeme.md#bundle)
-* [Environnement](eco-systeme.md#environnement)
-* [Profiler](eco-systeme.md#profiler)
-* [Arborescence](eco-systeme.md#arborescence)
-* [Lancement de l'application](eco-systeme.md#lancement-de-lapplication)
-* [Exo 1](eco-systeme.md#exo-1)
-
 Symfony nécessite tout un environnement pour fonctionner. On a déjà vu Composer pour gérer les dépendances par exemple.
 
 Symfony implique aussi différents "langages" et utilise un vocabulaire spécifique \(souvent repris dans d'autres framewrok\).
 
 ## Composer
 
-## MVC
+**Composer** est un logiciel gestionnaire de dépendances libre écrit en PHP. Il permet à ses utilisateurs de déclarer et d'installer les bibliothèques dont le projet principal a besoin. Le développement a débuté en avril 2011 et a donné lieu à une première version sortie le 1 mars 2012. Développé au début par Nils Adermann et Jordi Boggiano  \(qui continuent encore aujourd'hui à le maintenir\).
+
+Le logiciel Composer est fortement inspiré du logiciel [npm](https://fr.wikipedia.org/wiki/Npm_%28logiciel%29) pour [Node.js](https://fr.wikipedia.org/wiki/Node.js).
 
 ## ENTITÉ \(EQ. DU MODÈLE\)
 
@@ -37,7 +24,7 @@ Classe PHP qui fait le pont entre une entité et l'ORM, il permet notamment de s
 
 ## YAML
 
-Format de structuration de données très utilisé dans Symfony, mais on peut utiliser du JSON, XML ou des classes PHP, les fichiers de config par défaut sont en YAML.
+Format de structuration de données très utilisé dans Symfony, mais on peut utiliser du JSON, XML ou des classes PHP, les fichiers de configurations par défaut sont en YAML.
 
 ## ANNOTATION
 
@@ -45,9 +32,11 @@ Commentaire PHP directement dans les classes utiles \(controller, entité\) inte
 
 ## Routes
 
+Les routes permettent de faire un lien entre une URL et un contrôleur. 
+
 ## Bundles
 
-Sorte de modules Symfony qui peuvent contenir tout et n'importe quoi ; C'est la force de Symfony les modules peuvent fonctionner indépendemment et même sur d'autres structures PHP, autre framework etc.
+Sorte de modules Symfony qui peuvent contenir tout et n'importe quoi ; C'est la force de Symfony les modules peuvent fonctionner indépendamment et même sur d'autres structures PHP, autre framework etc.
 
 Cette notion a disparu avec la V4 de Symfony, mais il reste possible d'installer des Bundles tiers.
 
@@ -71,6 +60,4 @@ composer require profiler --dev
 ```
 
 Le profiler est toujours visible en bas de la page en mode développement.
-
-IMAGE
 
