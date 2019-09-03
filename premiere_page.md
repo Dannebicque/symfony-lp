@@ -25,7 +25,7 @@ class LuckyController
 }
 ```
 
-Ce code est votre premier contrôleur \(à déposer dans src/Controller\). Ce contrôleur est composé d'une méthode qui calcul un nombre aléatoire et retourne une réponse qui est du code HTML. Ce code n'utilise pas directement les vues de Symfony, et ne fonctionne pas \(en tout cas il n'est pas appelable\), car il n'est pas lié à une route.
+Ce code est votre premier contrôleur \(à déposer dans `src/Controller`\). Ce contrôleur est composé d'une méthode qui calcul un nombre aléatoire et retourne une réponse qui est du code HTML. Ce code n'utilise pas directement les vues de Symfony, et ne fonctionne pas \(en tout cas il n'est pas possible de l'appeler\), car il n'est pas lié à une route.
 
 ## Route
 
@@ -42,7 +42,9 @@ app_lucky_number:
 
 Le site sera accessible à cette adresse \(en exécutant le serveur local à Symfony\) [http://localhost:8000/lucky/number](http://localhost:8000/lucky/number)
 
+{% hint style="danger" %}
 **Nous n'utiliserons pas cette solution, pour des raisons de confort.**
+{% endhint %}
 
 ## Autre solution
 
@@ -52,7 +54,7 @@ Nous allons utiliser les annotations, qui permettent une syntaxe plus simple, et
 composer require annotations
 ```
 
-Et modifier le controller précédent en intégrant directement la route sous forme d'une annotation.
+Et modifier le contrôleur précédent en intégrant directement la route sous forme d'une annotation.
 
 ```text
 // src/Controller/LuckyController.php
@@ -77,7 +79,7 @@ class LuckyController
 
 ## Ajout d'une vue
 
-Cette solution fonctionne, mais écrire tout le code HTML dans la méthode n'est pas très pratique. Nous devons donc écrire des vues. Par défaut, Symfony utilise Twig. Pour cela, il faut l'installer
+Cette solution fonctionne, mais écrire tout le code HTML dans la méthode n'est pas très pratique. Nous devons donc écrire des vues. Par défaut, Symfony utilise [**Twig**](https://twig.symfony.com/). Pour cela, il faut l'installer
 
 ```text
 composer require twig

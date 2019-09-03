@@ -3,6 +3,7 @@
 * [Symfony](README.md)
 * [Introduction](introduction.md)
 * [Eco-Système de Symfony](eco-systeme.md)
+* [Architecture de Symfony](architecture-de-symfony.md)
 * [Première page avec Symfony](premiere_page.md)
 * [Controller et Routes](controller.md)
 * [console](console.md)
