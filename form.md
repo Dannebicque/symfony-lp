@@ -1,15 +1,5 @@
 # Formulaires
 
-* [Introduction](form.md#introduction-2)
-* [Création](form.md#création)
-* [TWIG](form.md#twig)
-* [Action / Request](form.md#action--request)
-* [Validation](form.md#validation)
-* [Exos 6](form.md#exos-6)
-* [Génération de CRUD](form.md#génération-de-crud)
-* [Exos 7](form.md#exos-7)
-* [Exos 8](form.md#exos-8)
-
 ## FORM
 
 ### Introduction

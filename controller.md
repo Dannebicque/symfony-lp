@@ -1,16 +1,5 @@
 # Controller et Routes
 
-* [Présentation](controller.md#prsentation)
-* [Structures d'une route](controller.md#structures-dune-route)
-* [Annotations](controller.md#annotations)
-* [Routes et paramètres](controller.md#routes-et-paramtres)
-* [Génération d'url](controller.md#gnration-durl)
-* [Controller & Action](controller.md#controller)
-* [Response](controller.md#response)
-* [Exercice 1](controller.md#exercice-1)
-* [Request](controller.md#request)
-* [Exercice 2](controller.md#exercice-2)
-
 ## Présentation
 
 **Une route permet de diriger une url \(ou un pattern d'url\) vers une méthode de controller appelée Action.**
@@ -21,9 +10,7 @@ Il est possible de décrire des routes selon les formats de fichiers : XML, JSON
 
 ## Structures d'une route
 
-* Une route peut être **constante** : /blog 
-
-ou **dynamique** : /blog/{slug} Ici slug englobé de **{ }** devient une variable dynamique qui prend tous les caractères alphanumériques par exemple : /blog/42 /blog/lorem-ipsum /blog/titi-32\_tata Ces 3 urls correspondent à la méthode ciblée par la route avec une variable slug différente. Cette variable peut être récupérée par le controller.
+Une route peut être **constante** : /blog ou **dynamique** : /blog/{slug} Ici slug englobé de **{ }** devient une variable dynamique qui prend tous les caractères alphanumériques par exemple : /blog/42 /blog/lorem-ipsum /blog/titi-32\_tata Ces 3 urls correspondent à la méthode ciblée par la route avec une variable slug différente. Cette variable peut être récupérée par le controller.
 
 ```text
 /**

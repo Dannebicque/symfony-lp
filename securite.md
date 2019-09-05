@@ -1,9 +1,5 @@
 # Sécurité
 
-* [Authentification - Authorization](securite.md#introduction)
-* [Configuration](securite.md#configuration)
-* [Exercice](securite.md#exercice)
-
 ## Introduction
 
 Deux notions majeures interviennent dans la conception de sécurité de Symfony :

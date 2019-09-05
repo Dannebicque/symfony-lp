@@ -1,11 +1,5 @@
 # Relations entre entités
 
-* [Relations](relations.md#relations)
-* [OneToMany \(1..n\) - ManyToOne \(n..1\)](relations.md#onetomany-1n---manytoone-n1)
-* [OneToOne  1..1](relations.md#onetoone--11)
-* [ManyToMany \(n..n\)](relations.md#manytomany-nn)
-* [Exercice](relations.md#exo-5)
-
 ## Introduction
 
 Il est fréquent que les entités soient liées entre-elles. Et nous avons la notion de clé étrangère qui peut apparaître dans nos tables. Il est possible \(voire nécessaire\) de gérer cela avec Doctrine.
@@ -40,7 +34,7 @@ Dans le cas d'une relation bidirectionnelle, il faut aussi explicité la relatio
 
 La relation 1..n définit une dépendance multiple entre 2 entités de sorte que la première peut être liée à plusieurs entités
 
-Prennons l'exemple des étudiants et des absences. Un étudiant peut avoir plusieurs \(many\) absences, mais une absence n'est associée qu'a un \(one\) seul étudiant.
+Prenons l'exemple des étudiants et des absences. Un étudiant peut avoir plusieurs \(many\) absences, mais une absence n'est associée qu'a un \(one\) seul étudiant.
 
 Cette relation peut donc se résumer à : plusieurs \(many\) absences pour un \(one\) étudiant, ou de manière équivalent un \(one\) étudiant pour plusieurs \(many\) absences.
 
@@ -135,7 +129,7 @@ Cette relation va créer une nouvelle table, contenant les deux clés étrangèr
 
 ## Manipulation de la console
 
-La console \(make:entity\), nous facilite la création des relations. En créant ou en modifiant l'entité, il est possible d'ajouter le champs contenant la relation. Pour cela le type sera **"relation"**. La console vous demandera de préciser l'entitée liée, ainsi que le type de relation. Vous pourrez ensuite selon la relation choisie\) préciser la relation inverse, de manière optionnelle ou obligatoire.
+La console \(make:entity\), nous facilite la création des relations. En créant ou en modifiant l'entité, il est possible d'ajouter le champs contenant la relation. Pour cela le type sera **"relation"**. La console vous demandera de préciser l'entité liée, ainsi que le type de relation. Vous pourrez ensuite selon la relation choisie\) préciser la relation inverse, de manière optionnelle ou obligatoire.
 
 **Attention, il est d'usage de lancer la console dans l'entité qui porte la relation \(propriétaire\), ou l'entité qui recevra la clé étrangère.**
 

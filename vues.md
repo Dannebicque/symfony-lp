@@ -1,19 +1,5 @@
 # Vues - TWIG
 
-* [Présentation](vues.md#affichage)
-* [Exemple](vues.md#exemple)
-* [Affichage](vues.md#affichage)
-* [Variables](vues.md#variables)
-* [Logique](vues.md#logique)
-* [Tests](vues.md#tests)
-* [Boucles](vues.md#boucles)
-* [Héritage](vues.md#héritage)
-* [Exos 1](vues.md#exos-1)
-* [Inclusions](vues.md#inclusions)
-* [Filtres](vues.md#filtres)
-* [Assets](vues.md#assets)
-* [Exercice 2](vues.md#exercice-2)
-
 ## Présentation
 
 Twig est un moteur de rendu de template comme Smarty ou Blade \(laravel\), mais a des rapports très proches avec Symfony, Sensio a contribué énormément à son développement. Un moteur de template permet de limiter les logiques complexes pour réaliser des templates simples à coder. Un moteur de template intégre généralement des fonctionnalités qui sont récurrentes dans le développement "front" et qui permettent de simplifier le code à écrire.
