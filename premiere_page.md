@@ -90,10 +90,11 @@ Il faut ensuite modifier le contrôleur pour utiliser les vues.
 ```text
 // src/Controller/LuckyController.php
 namespace App\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class LuckyController extends Controller
+class LuckyController extends AbstractController
 {
     /**
      * @Route("/lucky/number", name="app_lucky_number")
