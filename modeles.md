@@ -18,13 +18,13 @@ Vous êtes libre d'écrire le code qui permet le traitement métiers en dehors d
 
 Comme à chaque fois, il est d'abord nécessaire d'installer les bundles nécessaires pour manipuler la base de données avec un ORM. Il vous faut donc exécuter la commande ci\_dessous :
 
-```text
+```bash
 composer require symfony/orm-pack
 ```
 
 On va également installer, si vous ne l'avez pas encore fait, le bundle "maker" qui contient des outils pour générer du code sous Symfony grâce à la console.
 
-```text
+```bash
 composer require symfony/maker-bundle --dev
 ```
 
@@ -44,7 +44,7 @@ DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name"
 
 Une fois le fichier à jour avec vos données, vous pouvez créer votre base de données depuis la console.
 
-```text
+```bash
 php bin/console doctrine:database:create
 ```
 
@@ -54,7 +54,7 @@ Les modifications de structure de votre base de données devront être réalisé
 
 Utilisez la commande `make:entity` \(qui est dans le bundle maker\) pour avoir une série de question vous permettant de créer votre entité avec l'utilisation de l'ORM Doctrine. Vous pouvez créer une nouvelle entité ou modifier \(ajouter des champs\) une entité déjà existante en saisissant son nom.
 
-```text
+```bash
 php bin/console make:entity
 ```
 
@@ -73,7 +73,7 @@ Une fois terminé, le fichier d'Entité et le _repository_ associé sont génér
 
 Exemple dans la console :
 
-```text
+```bash
 php bin/console make:entity
 
 Class name of the entity to create or update:
@@ -107,7 +107,7 @@ Can this field be null in the database (nullable) (yes/no) [no]:
 
 Et le code de l'entité généré dans `src/Entity/Product.php` :
 
-```text
+```php
 // src/Entity/Product.php
 namespace App\Entity;
 
@@ -148,13 +148,13 @@ A ce stade l'entité est créé, mais n'existe pas dans la base de données. Il 
 
 La création d'un fichier de migration qui va contenir le code SQL a exécuter en fonction de votre SGBD.
 
-```text
+```bash
  php bin/console make:migration
 ```
 
 La mise à jour de votre base de données en fonction du fichier précédemment généré.
 
-```text
+```bash
 php bin/console doctrine:migrations:migrate
 ```
 
@@ -172,7 +172,7 @@ Après chaque modification ou ajout il faut de nouveau générer le fichier de m
 
 Une fois la base de données mise en place on va pouvoir insérer, modifier, supprimer et récupérer des informations de la base de données sans saisir de requêtes via des méthodes en initialisant l'entité fraichement créée :
 
-```text
+```php
 /**
  * @Route("/est", name="test")
  */
@@ -196,7 +196,7 @@ Il existe à la place de `$em->persist, $em->remove($post);` qui permettra de fa
 
 Ce dernier code effectue une création dans la base de données; pour une modification il suffit de modifier l'instanciation de l'entité de la sorte :
 
-```text
+```php
 /**
  * @Route("/test/modification", name="test")
  */
@@ -235,7 +235,7 @@ Si `$em` est le manager associé à une entité :
 
 Exemple
 
-```text
+```php
 // Modifications multiples : 
 /**
  * @Route("/est", name="test")
@@ -263,7 +263,7 @@ Si aucune requête prédéfinie ne correspond à vos besoin, vous pouvez bien s�
 
 Vous pouvez également générer vos requêtes manuellement pour avoir une requête complexe et précise directement dans le _controller_ mais idéalement il faudrait le placer dans le _repository_ dédié.
 
-```text
+```php
 // src/AppBundle/Repository/Post.php
 
 public function maRequete( $where )
@@ -295,7 +295,7 @@ public function maRequete( $where )
 
 Et l'utiliser dans votre _controller_
 
-```text
+```php
 // src/AppBundle/Controller/DefautController
 $this->getDoctrine()->getRepository(Post::class)->maRequete('test');
 ```
