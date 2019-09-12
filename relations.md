@@ -40,7 +40,7 @@ Cette relation peut donc se résumer à : plusieurs \(many\) absences pour un \(
 
 On se place prioritairement du coté du Many, et on doit écrire la relation ManyToOne. Elle est obligatoire pour définir la relation précédente.
 
-```text
+```php
 class Absence
 {
 // ...
@@ -62,7 +62,7 @@ La relation décrite précédemment est unidirectionnelle. Pour la rendre bidire
 
 Le code de Etudiant devient
 
-```text
+```php
 class Absence
 {
 // ...
@@ -78,7 +78,7 @@ private $etudiant;
 
 Le code de etudiant sera :
 
-```text
+```php
 class Etudiant
 {
     // ...
@@ -114,7 +114,7 @@ La relation 1..1 est peu utilisée mais permet une flexibilité en terme relatio
 
 Utilisateur -&gt; Adresse Produit -&gt; Image Commande -&gt; Facture
 
-```text
+```php
 /**
  * @ORM\OneToOne(targetEntity="Address")
  */
@@ -133,7 +133,7 @@ La console \(make:entity\), nous facilite la création des relations. En créant
 
 **Attention, il est d'usage de lancer la console dans l'entité qui porte la relation \(propriétaire\), ou l'entité qui recevra la clé étrangère.**
 
-```text
+```bash
 php bin/console make:entity
 
 Class name of the entity to create or update (e.g. BraveChef):
