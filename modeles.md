@@ -208,7 +208,6 @@ public function testModification()
     $post->setDateCreated(new \Datetime);
 
     $em = $this->getDoctrine()->getManager(); // on récupère le gestionnaire d'entité
-    $em->persist( $post ); // on déclare une modification de type persist et la génération des différents liens entre entité
     $em->flush(); // on effectue les différentes modifications sur la base de données 
     // réelle
 
