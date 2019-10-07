@@ -14,6 +14,7 @@
 * [Sécurité](securite.md)
 * [Services et Injection de dépendances](services.md)
 * [Les Bundles](bundles.md)
+* [Mise en production](mise-en-production.md)
 * [TP](tp.md)
 * [FAQ](faq.md)
 
