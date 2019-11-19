@@ -15,6 +15,7 @@
 * [Services et Injection de dépendances](services.md)
 * [Les Bundles](bundles.md)
 * [Mise en production](mise-en-production.md)
-* [TP](tp.md)
+* [TP \(LP-DEV, novices\)](tp.md)
+* [TP \(LP-DEV, moins novices\)](tp-lp-dev-moins-novices.md)
 * [FAQ](faq.md)
 
