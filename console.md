@@ -1,6 +1,6 @@
 # console
 
-Generating Controllers¶ To save time, you can install Symfony Maker and tell Symfony to generate a new controller class:
+Generating Controllers To save time, you can install Symfony Maker and tell Symfony to generate a new controller class:
 
 php bin/console make:controller BrandNewController
 

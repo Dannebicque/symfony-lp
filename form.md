@@ -16,13 +16,13 @@ La gestion des formulaire se fait via plusieurs classes PHP qui permettent entre
 
 Pour pouvoir utiliser les formulaires, selon la version d'installation de Symfony, il peut être nécessaire d'installer les packages :
 
-```text
+```bash
 composer require symfony/form
 ```
 
 Pour les exemples ci-dessous, on considère l'entité suivante \(exemple issue de la documentation Symfony\) :
 
-```text
+```php
 // src/Entity/Task.php
 namespace App\Entity;
 
@@ -59,7 +59,7 @@ On peut créer un Form de 2 façons différentes :
 
 #### Directement dans un controller
 
-```text
+```php
 // src/Controller/DefaultController.php
 namespace App\Controller;
 
@@ -100,7 +100,7 @@ Cette seconde solution, qui implique des fichiers complémentaires, permet une p
 
 Le fichier ci-dessous permet de créer le même formulaire.
 
-```text
+```php
 // src/Form/TaskType.php
 namespace App\Form;
 
@@ -123,46 +123,46 @@ class TaskType extends AbstractType
 
 On utilise la classe FormBuilder accessible avec la méthode
 
-```text
+```php
 $task = new Task();
 // ou $entite = $this->getDoctrine()->getRepository(Task::class)->find(1);
 $form = $this->createForm(TaskType::class, $task);
 ```
 
-dans un controller ; l'argument $task est l'entité que vous souhaitez hydrater; l'argument n'est pas obligatoire \(pour un formulaire de recherche par exemple\)
+dans un contrôleur ; l'argument `$task` est l'entité que vous souhaitez hydrater; l'argument n'est pas obligatoire \(pour un formulaire de recherche par exemple\)
 
 On peut mettre des champs de formulaire par défaut en modifiant l'entité avant de créer le formulaire et de lier le formulaire à l'entité :
 
 Par exemple
 
-```text
+```php
 $task = new Task;
 
 $task->setTask('Ma tâche pré-définie');
 $form = $this->createForm(TaskType::class, $task);
 ```
 
-Préremplira le formulaire avec _Ma tâche pré-définie_.
+Pré-remplira le formulaire avec _Ma tâche pré-définie_.
 
-Ensuite nous aurons des suites de -&gt;add\('nom\_du\_champs', TypeDeChamps::class, $options\);
+Ensuite nous aurons des suites de `->add('nom_du_champs', TypeDeChamps::class, $options);`
 
-Par défaut si vous ne mettez que le nom du champs Symfony se chargera de récupérer un type de champs en fonction du type de champs \(string, text, boolean date\)
+Par défaut si vous ne mettez que le nom du champs Symfony se chargera de récupérer un type de champs en fonction du type de champs \(string, text, boolean, date, ...\)
 
 Liste des champs possibles : [https://symfony.com/doc/current/reference/forms/types.html](https://symfony.com/doc/current/reference/forms/types.html)
 
-Dans une classe dédiée le createFormBuilder est déjà instantié il ne vous reste qu'à rajouter les différents add.
+Dans une classe dédiée le `createFormBuilder` est déjà instancié il ne vous reste qu'à rajouter les différents `add`.
 
 ### TWIG
 
 Une fois le formulaire créé et initié il faut **renvoyer** le tout à TWIG via la méthode :
 
-```text
+```php
 $form->createView();
 ```
 
 Soit par exemple
 
-```text
+```graphql
 return $this->render('template.html.twig', ['form' => $form->createView()]);
 ```
 
@@ -194,19 +194,19 @@ la `variable_form` correspond à la variable contenant le formulaire envoyée pa
 
 Le template est un fichier twig qui vient préciser et définir pour chaque élément du formulaire \(de manière globale\), le rendu en HTML.
 
-Des thèmes par défaut sont proposées : [https://symfony.com/doc/current/form/bootstrap4.html](https://symfony.com/doc/current/form/bootstrap4.html) Et la documentation pour créer votre tremplate : [https://symfony.com/doc/current/form/form\_customization.html](https://symfony.com/doc/current/form/form_customization.html)
+Des thèmes par défaut sont proposées : [https://symfony.com/doc/current/form/bootstrap4.html](https://symfony.com/doc/current/form/bootstrap4.html) Et la documentation pour créer votre template : [https://symfony.com/doc/current/form/form\_customization.html](https://symfony.com/doc/current/form/form_customization.html)
 
 ### Action / Request
 
 Une fois le formulaire créé et affiche via TWIG il faut rajouter un comportement qui va gérer la soumission du formulaire grâce à ces méthodes :
 
-* handleRequest\($request\) permet d'associer les valeurs input à la classe Form précédemment créé
-* isSubmitted\(\) permet de savoir si le formulaire a été envoyé 
-* isValid\(\)  permet de savoir si les données saisies sont valides 
+* `handleRequest($request)` permet d'associer les valeurs input à la classe Form précédemment créé
+* `isSubmitted()` permet de savoir si le formulaire a été envoyé 
+* `isValid()`  permet de savoir si les données saisies sont valides 
 
 Dans la majorité des cas on va tester si :
 
-```text
+```php
 public function newAction(Request $request){
   //... génération ou récupération du formulaire
 
@@ -224,15 +224,15 @@ public function newAction(Request $request){
 
 Les validations permettent de gérer des contraintes au niveau du formulaire ; Par exemple pour pourra forcer en PHP que le champs email soit bien un email ou que tel champs ne peut pas dépasser tel nombre de caractères, vous trouverez la liste des contraintes basiques sur site site de symfony : [http://symfony.com/doc/4.1/validation.html](http://symfony.com/doc/4.1/validation.html)
 
-Ces contraintes ou assert peuvent être gérée de plusieurs façon XML, JSON, YAML, PHP ou en annotation dans notre cas; il faudra utiliser cette ligne tout en haut du controller :
+Ces contraintes ou assert peuvent être gérée de plusieurs façon XML, JSON, YAML, PHP ou en annotation dans notre cas; il faudra utiliser cette ligne tout en haut du contrôleur :
 
-```text
+```php
 use Symfony\Component\Validator\Constraints as Assert;
 ```
 
 Pour ensuite pouvoir utiliser l'annotation :
 
-```text
+```php
 class Author
 {
     /**
@@ -284,7 +284,7 @@ Attention si vous modifier une entité les FormType ne sont pas générés autom
 ### Exercice
 
 * On va créer une page de recherche 
-* Modifier le repository de Post pour créer une method search\( $word \)
+* Modifier le repository de Post pour créer une méthode `search($word)`
 
   qui recherchera dans le titre et le contenu le mot $word 
 
@@ -292,7 +292,7 @@ Attention si vous modifier une entité les FormType ne sont pas générés autom
 
 * Créer une nouvelle page dans le Controller /search/{word}
 * Créer le formulaire directement dans le controller sans le lier à une entité 
-* A la soumission on va récupérer $form-&gt;getData\(\) qui sera notre $\_POST
+* A la soumission on va récupérer `$form->getData()` qui sera notre $\_POST
 * Pour récupérer la variable $word et utiliser la méthode du repository fraichement créée.
 * Pour finalement afficher tout le contenu dans une page de listing.
 

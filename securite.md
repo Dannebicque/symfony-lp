@@ -128,7 +128,7 @@ Les étapes suivantes expliques ce qui a été créé.
 
 Là aussi, tout est pré-confiuré, vous pouvez bien sûr adapter. L'encodage permet de définir le "format" de cryptage du mot de passe.
 
-```text
+```yaml
 encoders:
    # use your user class name here
    App\Entity\User:
@@ -142,7 +142,7 @@ encoders:
 
 Le Provider permet d'assurer quelques tâches nécessaires pour la sécurité. Notamment le fait de récupérer le fait qu'un utilisateur soit connecté \(lire la session par exemple\), gérer le "se souvenir de moi", ... Cette partie est configurée par défaut dans le fichier security.yaml. Elle peut être suffisante dans de nombreux cas et notamment quand la gestion se fait par une entité.
 
-```text
+```yaml
 providers:
     # used to reload user from session & other features (e.g. switch_user)
     app_user_provider:
@@ -155,7 +155,7 @@ providers:
 
 C'est la partie essentielle du process de sécurisation. C'est lui qui permet de dire quand il faut vérifier et authentifier un utilisateur. Le firewall permet de déterminer pour un pattern d'url \(une requête \(request\)\), la méthode d'authentification à utiliser \(une page de connexion, une clé d'API, une dépendance à un fournisseur OAuth, ...\).
 
-```text
+```yaml
  firewalls:
      dev:
          pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -177,7 +177,7 @@ La gestion des roles se fait dans la partie "access\_control" du fichier securit
 
 Exemple:
 
-```text
+```yaml
 access_control:
   # require ROLE_ADMIN for /admin*
   - { path: ^/admin, roles: ROLE_ADMIN }
@@ -198,7 +198,7 @@ De cette manière les URL seront automatiquement bloquées si l'utilisateur ne d
 
 Enfin, il est souvent nécessaire de récupérer les informations sur l'utilisateur connecté. Pour cela, dans un contrô leur il est possible d'utiliser directement l'instruction :
 
-```text
+```php
 $user = $this->getUser();
 ```
 
@@ -206,7 +206,7 @@ $user = $this->getUser();
 
 Sur la même idée que pour la connexion, il est possible de gérer la déconnexion. Pour cela, dans le fichier security.yaml, il faut définir le path \(la route\) pour la méthode qui gére la déconnexion, et la cible \(une route, optionnelle\), une fois la déconnexion réussie.
 
-```text
+```yaml
 firewalls:
      main:
          # ...
@@ -218,7 +218,7 @@ firewalls:
 
 La méthode dans le contrôleur peut se résumer à :
 
-```text
+```php
 /**
  * @Route("/deconnexion", name="app_logout")
  */
