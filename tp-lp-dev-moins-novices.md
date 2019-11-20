@@ -16,6 +16,10 @@ Réaliser un outil de dépôt de travaux étudiants, en utilisant Symfony. L'out
 
 **Vous êtes libre de la structure, de la mise en page et des données de votre base de données, mais vous devez répondre à la commande** 
 
+{% hint style="info" %}
+Dans le cadre de ce mini-projet vous utiliserez Webpack Encore pour la gestion de votre partie front \(css/js\) : [https://symfony.com/doc/current/frontend.html](https://symfony.com/doc/current/frontend.html)
+{% endhint %}
+
 {% hint style="danger" %}
 Le travail pourra être réalisé en binôme. Le rendu sera évalué le 21/11 en fin de séance.
 {% endhint %}
