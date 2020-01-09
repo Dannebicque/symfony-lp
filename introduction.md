@@ -125,14 +125,23 @@ Par défaut Symfony version Skeleton ne sais rien faire ! Par contre, il n'embar
 
 Grâce à Flex vous installez rapidement le nécessaire pour répondre à votre projet.
 
+###  Symfony V5 : Continuer vers la simplification et la standardisation <a id="symfony-v4-un-retour-aux-bases"></a>
+
+Avec sa version 5 \(et suivante\), Symfony continue sa simplification en facilitant l'usage de nombreux composants redéfinis et devenus génériques.
+
+{% hint style="info" %}
+Une lecture intéressante sur la logique d'évolution du framework Symfony : [https://www.disko.fr/reflexions/technique/symfony-4-4-5-0-les-nouveautes-venir/](https://www.disko.fr/reflexions/technique/symfony-4-4-5-0-les-nouveautes-venir/)
+{% endhint %}
+
 ## Installations
 
 ### Configuration requise pour votre serveur
 
 * Un serveur Web
-* PHP 7.2 ou supérieur
+* PHP 7.2.5 ou supérieur
 * [Git \(différent de GitHub\)](https://git-scm.com/)
-* Le gestionnaire de dépendance [Composer \(pour exécuter FLEX\)](https://getcomposer.org/)
+* Le gestionnaire de dépendance [Composer](https://getcomposer.org/)
+* Le nouveau gestionnaire d'installation de Symfony : [https://symfony.com/download](https://symfony.com/download)
 * Une maîtrise de son système d'exploitation ! \(fichiers cachés, variables PATH, php.ini, console...\)
 
 ## Exercice 1 : Installation des outils
@@ -140,24 +149,32 @@ Grâce à Flex vous installez rapidement le nécessaire pour répondre à votre 
 * [ ] Installer un serveur local \(si ce n'est pas déjà fait\)
 * [ ] Installer [Git](https://git-scm.com/)
 * [ ] Installer [Composer](https://getcomposer.org/)
+* [ ] Installer l'utilisateur [Symfony](https://symfony.com/download)
 * [ ] Pour les utilisateurs de Windows : Installer une vraie console ! [https://cmder.net/](https://cmder.net/) par exemple.
-* [ ] Installer un vraie IDE ! \(PhpStorm / NetBeans, ou éventuellement VSCode\).
+* [ ] Installer un vraie IDE ! \([PhpStorm](https://www.jetbrains.com/phpstorm/) / NetBeans, ou éventuellement [VSCode](https://code.visualstudio.com/)\).
 
 Pensez à vérifier que tout fonctionne correctement :
 
 ```text
 php -v
 composer -v
+symfony -v
 git -v
 ```
 
 Vous devez vous afficher les numéros de version. **Corrigez les messages d'erreurs éventuels.**
 
+{% hint style="info" %}
+Vous pouvez tester si votre système est prêt à installer Symfony :
+
+`symfony check:requirements`
+{% endhint %}
+
 ## Exercice 2 : Installation de Symfony.
 
 Symfony propose deux versions :
 
-* La version **skeleton**, la plus minimaliste et légère, qui n'installe que le stricte minimum, vous laissant ainsi la liberté d'ajouter les composants dont vous avez réellement besoin.
+* La version **skeleton**, la plus minimaliste et légère, qui n'installe que le stricte minimum, vous laissant ainsi la liberté d'ajouter les composants dont vous avez réellement besoin. Avec cette solution vous pouvez développer des API, des micro-services,  ou une application en console
 * Le version **website-skeleton**, qui va installer tout le nécessaire pour faire fonctionner un site \(vues, annotations, base de données, ...\)
 
 On va privilégier la version **skeleton**.
@@ -165,32 +182,25 @@ On va privilégier la version **skeleton**.
 Placez-vous dans le répertoire où vous souhaitez installer Symfony \(www, public\_html, ...\) et exécutez la commande suivante \(cela va créer un répertoire du nom de votre projet\).
 
 ```text
-composer create-project symfony/skeleton nomDuProjet
+symfony new nomDuProjet
+
+#ou avec Composer
+ composer create-project symfony/skeleton nomDuProjet
+
 ```
 
 Par défaut cette commande récupère la dernière version stable de Symfony. Le téléchargement peut prendre quelques minutes.
 
-Il est possible de tester immédiatement le bon fonctionnement de l'installation en utilisant la ligne de commande en php suivante :
+Il est possible de tester immédiatement le bon fonctionnement de l'installation en utilisant la ligne de commande intégrée dans l'utilitaire Symfony :
 
 ```text
 cd nomDuProjet
-php -S 127.0.0.1:8000 public/index.php
+ symfony server:start
 ```
 
-Si vous vous rendez sur l'URL [http://127.0.0.1:8000](http://127.0.0.1:8000) vous devriez voir la page d'accueil de Symfony avec le numéro de la version installée.
+Si vous vous rendez sur l'URL [http://localhost:8000/](http://localhost:8000/) vous devriez voir la page d'accueil de Symfony avec le numéro de la version installée..
 
-Il est également possible d'installer un serveur embarqué avec Symfony. Cela peut servir pour des tests rapides. Pour cela il faut installer ce serveur \(la version skeleton ne contenant que le strict minimum\)
-
-```text
-cd nomDuProjet
-composer require symfony/web-server-bundle --dev
-```
-
-Et l'exécuter :
-
-```text
- php bin/console server:run
-```
-
-Et vous trouverez par défaut, votre site à l'URL : [http://localhost:8000/](http://localhost:8000/)
+{% hint style="info" %}
+Symfony embarque \(et installe\) un serveur Web très puissant qui permet de tester le fonctionnement d'un site. Il est possible de gérer les url sécurisées \(https\), la simulation d'un domaine, ...
+{% endhint %}
 
