@@ -2,9 +2,7 @@
 
 **L'ensemble de ce cours se base sur la version 4.1 de Symfony**
 
-{% hint style="info" %}
-Ce cours concerne les versions 4.0-4.3 de Symfony. Le cours de la version 5 \(4.4\) se trouve ici :  [https://cours.davidannebicque.fr/symfony/](https://cours.davidannebicque.fr/symfony/)
-{% endhint %}
+La base de ce cours est issue de [https://github.com/moshifr/sf\_lp2018/blob/master/README.md](https://github.com/moshifr/sf_lp2018/blob/master/README.md)
 
 * [Introduction](introduction.md)
 * ["Eco-système" Symfony](eco-systeme.md)
