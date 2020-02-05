@@ -159,7 +159,7 @@ Pensez à vérifier que tout fonctionne correctement :
 php -v
 composer -v
 symfony -v
-git -v
+git --version
 ```
 
 Vous devez vous afficher les numéros de version. **Corrigez les messages d'erreurs éventuels.**
