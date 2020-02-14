@@ -81,7 +81,7 @@ Si vous avez un objet `$tab`, qui est une instance d'une classe ayant comme prop
 
 Si vous avez un objet `$tab`, qui est une instance d'une classe ayant comme propriété `$param1`, qui est un tableau associatif avec une clé `key1`, la syntaxe pourrait être :
 
-```text
+```python
 {{tab.param1.key1}}
 ```
 
@@ -117,7 +117,7 @@ Le && de PHP s'écrit "and" dans TWIG, et le \|\| de PHP s'écrit "or" dans TWIG
 
 Il est possible d'avoir des _elseif_ \(autant que nécessaire\) et un bloc _else_ \(1 au maximum\)
 
-```text
+```python
 {% if condition %}
 
 {% elseif condition %}
@@ -133,7 +133,7 @@ Il n'existe que la boucle for dans TWIG \(elle est un peu l'équivalent d'un for
 
 Le code ci-dessous est une boucle qui varie de 1 à 10.
 
-```text
+```python
 {% for i in 1..10 %}
 
 {% endfor %}
@@ -141,7 +141,7 @@ Le code ci-dessous est une boucle qui varie de 1 à 10.
 
 La boucle ci-dessous est une boucle qui parcours une "collection" users \(l'équivalent du foreach\). **Attention la syntaxe est inversée par rapport au PHP**
 
-```text
+```python
 <ul>
     {% for user in users %}
         <li>{{ user.username }}</li>
@@ -164,9 +164,9 @@ Dans le cadre d'une boucle TWIG propose une variable nommée loop qui permet d'a
 
 La boucle ci-dessous intègre un test. Ce qui simplifie l'écriture. Elle intègre également un else dans le cas ou la boucle ne ferait aucune itération. Il est possible d'utiliser le else sans le if et réciproquement.
 
-```text
+```python
 <ul>
-    {% for user in users if user.active %}
+    {% for user in users|filter(user => user.active == true) %}
         <li>{{ user.username }}</li>
     {% else %}
         <li>No users found</li>
@@ -176,7 +176,7 @@ La boucle ci-dessous intègre un test. Ce qui simplifie l'écriture. Elle intèg
 
 Le code ci-dessus serait équivalent en PHP au code suivant:
 
-```text
+```php
 <?php
 if (count(users) > 0) {
     foreach ($users as $user) {
@@ -194,13 +194,13 @@ else {
 
 TWIG permet l'héritage de template via un `extends` dans les templates enfants :
 
-```text
+```python
 {% extends 'base.html.twig' %}
 ```
 
 Dans les templates mère on définit des "block" que l'on vient surcharger dans les templates enfants :
 
-```text
+```python
 {% block body %}
 toto
 {% endblock %}
@@ -208,7 +208,7 @@ toto
 
 On peut également reprendre le block parent via
 
-```text
+```python
 {{ parent() }}
 ```
 
@@ -245,13 +245,13 @@ TWIG propose de gérer facilement les URL de vos images, fichiers CSS ou encore 
 
 Pour cela vous aurez besoin d'ajouter le bundle suivant :
 
-```text
+```bash
 composer require symfony/asset
 ```
 
 Ensuite, vous pouvez écrire dans TWIG
 
-```text
+```markup
 <img src="{{ asset('images/logo.png') }}" alt="Symfony!" />
 
 <link href="{{ asset('css/blog.css') }}" rel="stylesheet" />
