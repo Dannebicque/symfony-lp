@@ -229,6 +229,14 @@ public function logout(): void
 
 Cette méthode qui ne retourne rien, permet la déconnexion, et la redirection se fait via le target définit dans security.yaml.
 
+#### Générer un mot de passe avec le bon encodage
+
+Grâce à la console, il est possible de générer un mot de passe selon l'encodage utilisé par Symfony.
+
+```bash
+bin/console security:encode-password
+```
+
 ## Exercice
 
 Mettre en place une classe User, et créer le formulaire de connexion en suivant la documentation. Filtrer la partie création de catégorie uniquement à des utilisateurs ayant le rôle ROLE\_ADMIN.
