@@ -146,19 +146,6 @@ class Product
 
 A ce stade l'entité est créé, mais n'existe pas dans la base de données. Il reste deux étapes à exécuter.
 
-#### Mettre à jour votre base de données : méthode 1
-
-Sans générer de fichier de migration \(qui contient toutes les instructions SQL à exécuter sur la base de données, notamment pour le déploiement d'une mise à jour\)
-
-```php
-bin/console doctrine:schema:update -f
-
-//ou
-bin/console d:s:u -f
-```
-
-#### Mettre à jour votre base de données : méthode 2
-
 La création d'un fichier de migration qui va contenir le code SQL a exécuter en fonction de votre SGBD.
 
 ```bash

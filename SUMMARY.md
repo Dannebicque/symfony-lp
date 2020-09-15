@@ -18,4 +18,5 @@
 * [TP \(LP-DEV, novices\)](tp.md)
 * [TP \(LP-DEV, moins novices\)](tp-lp-dev-moins-novices.md)
 * [FAQ](faq.md)
+* [Créer un environnement Symfony collaboratif](creer-un-environnement-symfony-collaboratif.md)
 
