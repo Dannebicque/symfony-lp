@@ -74,6 +74,10 @@ Une fois cette commande executée vous avez un fichier d'entité de créé, un r
 Il faut ensuite mettre à jour votre base de données, avec les commandes suivantes:
 
 ```text
+bin/console d:s:u -f
+
+#ou
+
 bin/console make:migration
 bin/console doctrine:migrations:migrate
 ```

@@ -49,7 +49,7 @@ class Absence
 * @ORM\ManyToOne(targetEntity="App\Entity\Etudiant")
 * @ORM\JoinColumn(nullable=true)
 */
-private etudiant;
+private $etudiant;
 ...
 }
 ```
