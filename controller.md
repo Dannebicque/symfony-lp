@@ -12,7 +12,7 @@ Il est possible de décrire des routes selon les formats de fichiers : XML, JSON
 
 Une route peut être **constante** : /blog ou **dynamique** : /blog/{slug} Ici slug englobé de **{ }** devient une variable dynamique qui prend tous les caractères alphanumériques par exemple : /blog/42 /blog/lorem-ipsum /blog/titi-32\_tata Ces 3 urls correspondent à la méthode ciblée par la route avec une variable slug différente. Cette variable peut être récupérée par le controller.
 
-```text
+```php
 /**
  * @Route("/blog/{slug}", name="article_blog")
  */
@@ -26,7 +26,7 @@ public function article($slug)
 * Ces variables peut être mise par défaut grâce à "defaults"
 * Ces variables peuvent être soumises à une validation de format via "requirements"
 
-```text
+```php
 /**
  * @Route("/{id}", name="index", requirements={"id"="\d+"}, defaults={"id"=1})
  */
@@ -45,7 +45,7 @@ public function index($id)
 
 Pour pouvoir utiliser une annotation il faut :
 
-```text
+```php
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 ```
 
@@ -57,7 +57,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 On définit une variable d'url via des accolades {ma\_variable} :
 
-```text
+```php
 /**
 * @Route("/page", defaults={"page": "nopage"}, name="blog_index")
 * @Route("/page/{page}", name="blog_index")
@@ -72,7 +72,7 @@ Ici on a deux routes pour la méthode indexAction avec une variable $page qui es
 
 On peut cumuler plusieurs variables :
 
-```text
+```php
 /**
 * @Route("/page/{page}/{subpage}", name="blog_index")
 */
@@ -86,13 +86,13 @@ public function indexAction($page, $subpage)
 
 Pour générer une url en PHP on utilise :
 
-```text
+```php
 $this->generateurl('nom_de_la_route', $variables);
 ```
 
 Ou sous TWIG on a deux fonctions :
 
-```text
+```php
 {{ path('nom_route', {'page': 'toto', 'vars2': 'titi'} ) }}
 
 {{ url('nom_route', {'page': 'toto', 'vars2': 'titi'} ) }}
@@ -116,13 +116,13 @@ Une Action renvoie toujours un type Response ; il existe plusieurs type de Respo
 
 La plus utilisée est Response pour l'utiliser on va ajouter dans le "use" suivant :
 
-```text
+```php
 use Symfony\Component\HttpFoundation\Response;
 ```
 
 et dans la méthode action on :
 
-```text
+```php
 public function index(){
     return new Response('Ma response');
 }
@@ -132,7 +132,7 @@ Affiche à l'écran Ma response. Dans l'état cette réponse n'est pas du HTML, 
 
 Une méthode render\(\) \(définie quand la classe AbstractController dont votre controller doit hériter\) permet aux Actions de récupérer une vue et d'afficher le contenu de la vue compilée avec les différentes variables envoyées.
 
-```text
+```php
 /**
  * @ Route("/", name="page")
  */
@@ -164,7 +164,7 @@ En passant en paramètre un objet de type Request, on peut le manipuler selon le
 
 _Passer un objet en paramètre de cette manière est ce que l'on nomme de l'injection de dépendance. Le lien est fait automatiquement par Symfony grâce au mécanisme d'autowiring._
 
-```text
+```php
 use Symfony\Component\HttpFoundation\Request;
 
 public function index(Request $request)

@@ -37,7 +37,7 @@ Pour cette première séance vous devrez mettre en place les éléments suivants
 
 ### Première étape
 
-* Une nouvelle installation de Symfony \(4.3 minimum\)
+* Une nouvelle installation de Symfony \(5.1\)
 * Mettre en place les controllers et les vues nécessaires à la navigation "publique" du site
   * Les vues seront des prototypes, n'hésitez pas à mettre des données fictives pour les remplacer ensuite par les données issues de la base de données.
   * Ces données pourraient venir du controller de manière fictive.

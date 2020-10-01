@@ -26,6 +26,10 @@ Classe PHP qui fait le pont entre une entité et l'ORM, il permet notamment de s
 
 Format de structuration de données très utilisé dans Symfony, mais on peut utiliser du JSON, XML ou des classes PHP, les fichiers de configurations par défaut sont en YAML.
 
+{% hint style="info" %}
+Dans la version 6, cette syntaxe ne sera plus utilisée, et sera remplacée par du PHP
+{% endhint %}
+
 ## ANNOTATION
 
 Commentaire PHP directement dans les classes utiles \(controller, entité\) interprété par Symfony pour générer des fichiers de config temporaires; Nous utiliserons pour un soucis de simplification en majorité cette notation.

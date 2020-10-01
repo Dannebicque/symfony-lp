@@ -15,9 +15,11 @@ Découvrir et appréhender un framework PHP web.
 
 * 20 heures de TD
 * 12 heures de TP
+* 16h en LP DEV + 16h d'outils en liens avec Symfony
 * Notes :
   * 1 évaluation écrite \(dernier TD\)
   * 1 note pratique \(lors du dernier TP\)
+  * 1 projet évalué \(LP DEV\)
 
 ## Rappels des concepts du MVC
 
@@ -88,7 +90,9 @@ Le développeur qui utilise le framework pourra personnaliser les éléments p
       </td>
     </tr>
   </tbody>
-</table>![Les 10 frameworks les plus populaires en PHP \(2019\).](.gitbook/assets/php-frameworks.png)
+</table>
+
+![Les 10 frameworks les plus populaires en PHP \(2019\).](.gitbook/assets/php-frameworks.png)
 
 Article comparatifs des 10 frameworks PHP les plus populaires de 2019: [https://coderseye.com/best-php-frameworks-for-web-developers/](https://coderseye.com/best-php-frameworks-for-web-developers/)
 
@@ -96,7 +100,7 @@ Article comparatifs des 10 frameworks PHP les plus populaires de 2019: [https://
 
 ![](.gitbook/assets/logosymfony.png)
 
-* Framework MVC en PHP 5 \(V2\) et PHP 7 \(V3 et V4\), libre
+* Framework MVC en PHP 5 \(V2\) et PHP 7 \(V3, V4 et .V5 \), libre
 * Développé en 2005 par la société Sensio pour répondre à ses besoins
 * Division de la société Sensio en deux entités l’agence Web et l’entreprise qui soutient et maintient Symfony : SensioLabs, dirigée par Fabien Potencier, l’auteur de Symfony
 * Framework français !, De renommée mondiale
@@ -109,7 +113,7 @@ Article comparatifs des 10 frameworks PHP les plus populaires de 2019: [https://
 * Moteur de template puissant et simple
 * Depuis la V4, Symfony est très léger et très rapide
 
-![Feuille de route de l&apos;&#xE9;volution du framework](.gitbook/assets/capture-de-cran-2019-09-03-a-06.03.08.png)
+![](.gitbook/assets/capture-de-cran-2020-10-01-a-06.07.35.png)
 
 ### Symfony V4 : Un retour aux bases
 
