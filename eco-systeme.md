@@ -6,7 +6,7 @@ Symfony implique aussi différents "langages" et utilise un vocabulaire spécifi
 
 ## Composer
 
-**Composer** est un logiciel gestionnaire de dépendances libre écrit en PHP. Il permet à ses utilisateurs de déclarer et d'installer les bibliothèques dont le projet principal a besoin. Le développement a débuté en avril 2011 et a donné lieu à une première version sortie le 1 mars 2012. Développé au début par Nils Adermann et Jordi Boggiano  \(qui continuent encore aujourd'hui à le maintenir\).
+**Composer** est un logiciel gestionnaire de dépendances libre écrit en PHP. Il permet à ses utilisateurs de déclarer et d'installer les bibliothèques dont le projet principal a besoin. Le développement a débuté en avril 2011 et a donné lieu à une première version sortie le 1 mars 2012. Développé au début par Nils Adermann et Jordi Boggiano \(qui continuent encore aujourd'hui à le maintenir\).
 
 Le logiciel Composer est fortement inspiré du logiciel [npm](https://fr.wikipedia.org/wiki/Npm_%28logiciel%29) pour [Node.js](https://fr.wikipedia.org/wiki/Node.js).
 
@@ -32,7 +32,7 @@ Commentaire PHP directement dans les classes utiles \(controller, entité\) inte
 
 ## Routes
 
-Les routes permettent de faire un lien entre une URL et un contrôleur. 
+Les routes permettent de faire un lien entre une URL et un contrôleur.
 
 ## Bundles
 

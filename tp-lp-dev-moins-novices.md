@@ -14,7 +14,7 @@ Réaliser un outil de dépôt de travaux étudiants, en utilisant Symfony. L'out
 * Les travaux comporteront des fichiers et/ou des liens
 * Possibilité de "noter" un travail \(système de like par exemple\). Affichage d'un top 3 par catégories.
 
-**Vous êtes libre de la structure, de la mise en page et des données de votre base de données, mais vous devez répondre à la commande** 
+**Vous êtes libre de la structure, de la mise en page et des données de votre base de données, mais vous devez répondre à la commande**
 
 {% hint style="info" %}
 Dans le cadre de ce mini-projet vous utiliserez Webpack Encore pour la gestion de votre partie front \(css/js\) : [https://symfony.com/doc/current/frontend.html](https://symfony.com/doc/current/frontend.html)

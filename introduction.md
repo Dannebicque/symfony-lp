@@ -55,17 +55,14 @@ Un framework dit orienté objet est typiquement composé de classes mères qui
 
 Le développeur qui utilise le framework pourra personnaliser les éléments principaux du framework par extension, en utilisant le **mécanisme d’héritage** : créer des nouvelles classes qui contiennent toutes les fonctionnalités que met en place le framework, et en plus ses fonctionnalités propres, créées par le développeur en fonction des besoins spécifiques à son application.
 
+| Avantages | Inconvénients |
+| :--- | :--- |
+
+
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Avantages</th>
-      <th style="text-align:left">Inconv&#xE9;nients</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">
-        <p></p>
+      <th style="text-align:left">
         <ul>
           <li>Pour e&#x301;viter des erreurs dans l&#x2019;organisation des appels</li>
           <li>E&#x301;viter les appels directs aux commandes PHP</li>
@@ -75,9 +72,8 @@ Le développeur qui utilise le framework pourra personnaliser les éléments p
           <li>Ne pas re&#x301;inventer la roue</li>
           <li>La gestion des formulaire, des utilisateurs, ...</li>
         </ul>
-      </td>
-      <td style="text-align:left">
-        <p></p>
+      </th>
+      <th style="text-align:left">
         <ul>
           <li>Apprentissage d&#x2019;une couche supple&#x301;mentaire</li>
           <li>La majorite&#x301; des fonctionnalite&#x301;s PHP sont rede&#x301;finies</li>
@@ -85,10 +81,11 @@ Le développeur qui utilise le framework pourra personnaliser les éléments p
           <li>Apprentissage de l&#x2019;utilisation du framework choisit : ses classes,
             ses objets, sa logique !</li>
         </ul>
-      </td>
+      </th>
     </tr>
-  </tbody>
-</table>![Les 10 frameworks les plus populaires en PHP \(2019\).](.gitbook/assets/php-frameworks.png)
+  </thead>
+  <tbody></tbody>
+</table>
 
 Article comparatifs des 10 frameworks PHP les plus populaires de 2019: [https://coderseye.com/best-php-frameworks-for-web-developers/](https://coderseye.com/best-php-frameworks-for-web-developers/)
 

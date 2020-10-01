@@ -2,9 +2,9 @@
 
 ## Présentation
 
-Un template ou une vue est le meilleur moyen d'organiser et de restituer le code HTML à partir de  votre application, que vous deviez rendre le code HTML à partir d'un contrôleur ou générer le contenu d'un courrier électronique . Les templates dans Symfony sont créés avec Twig: un moteur de modèle flexible, rapide et sécurisé.
+Un template ou une vue est le meilleur moyen d'organiser et de restituer le code HTML à partir de votre application, que vous deviez rendre le code HTML à partir d'un contrôleur ou générer le contenu d'un courrier électronique . Les templates dans Symfony sont créés avec Twig: un moteur de modèle flexible, rapide et sécurisé.
 
-[Twig](https://twig.symfony.com/) est un moteur de rendu de template comme [Smarty](https://www.smarty.net/) ou [Blade](https://laravel.com/docs/5.8/blade) \(laravel\). Twig a cependant été développé pour Symfony à l'origine et peut être utilisé dans d'autres contextes. 
+[Twig](https://twig.symfony.com/) est un moteur de rendu de template comme [Smarty](https://www.smarty.net/) ou [Blade](https://laravel.com/docs/5.8/blade) \(laravel\). Twig a cependant été développé pour Symfony à l'origine et peut être utilisé dans d'autres contextes.
 
 {% hint style="info" %}
 Un moteur de template permet de limiter les logiques complexes pour réaliser des templates simples à coder. Un moteur de template intègre généralement des fonctionnalités qui sont récurrentes dans le développement "front" et qui permettent de simplifier le code à écrire.

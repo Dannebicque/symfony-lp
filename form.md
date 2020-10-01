@@ -286,7 +286,7 @@ Attention si vous modifier une entité les FormType ne sont pas générés autom
 * On va créer une page de recherche 
 * Modifier le repository de Post pour créer une méthode `search($word)`
 
-  qui recherchera dans le titre et le contenu le mot $word 
+  qui recherchera dans le titre et le contenu le mot $word
 
   Tips : [https://symfony.com/doc/current/doctrine.html\#querying-for-objects-the-repository](https://symfony.com/doc/current/doctrine.html#querying-for-objects-the-repository)
 

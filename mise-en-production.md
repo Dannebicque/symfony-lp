@@ -54,7 +54,7 @@ Il vous faut ensuite exécuter les différentes opérations de mise en ligne de 
 
 ### 1\) Configurer vos variables d'environnement
 
-Symfony propose une gestion poussée des environnements, et vous pourriez avoir plusieurs fichiers en fonction du contexte :  [https://symfony.com/doc/current/configuration.html\#configuration-environments](https://symfony.com/doc/current/configuration.html#configuration-environments)
+Symfony propose une gestion poussée des environnements, et vous pourriez avoir plusieurs fichiers en fonction du contexte : [https://symfony.com/doc/current/configuration.html\#configuration-environments](https://symfony.com/doc/current/configuration.html#configuration-environments)
 
 Si vous n'avez qu'un fichier `.env`, vous devez le mettre à jour avec les informations de votre serveur de production \(base de données, éventuellement serveur de mail, ...\).
 
