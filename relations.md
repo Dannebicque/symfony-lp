@@ -60,7 +60,7 @@ On dit dans ce cas que Absence est propriétaire de la relation \(toujours du co
 
 La relation décrite précédemment est unidirectionnelle. Pour la rendre bidirectionnelle il faut décrire la relation dans l'entité etudiant \(avec la relation inverse OneToMany\).
 
-Le code de Etudiant devient
+Le code de Absence devient
 
 ```php
 class Absence
@@ -76,7 +76,7 @@ private $etudiant;
 }
 ```
 
-Le code de etudiant sera :
+Le code de Etudiant sera :
 
 ```php
 class Etudiant
@@ -106,7 +106,7 @@ class Etudiant
 
 La relation OneToMany n'est pas obligatoire. Elle permet juste d'inverser la relation, et de rendre la manipulation plus simple.
 
-Dans ce cas, on fait apparaître un tableau contenant toutes les objets associés à cette relation \(many\).
+Dans ce cas, on fait apparaître un tableau \(`$this->absences`\), de type `ArrayCollection` contenant tous les objets associés à cette relation \(many\).
 
 ## Relation 1..1 \(OneToOne\)
 
@@ -129,7 +129,7 @@ Cette relation va créer une nouvelle table, contenant les deux clés étrangèr
 
 ## Manipulation de la console
 
-La console \(make:entity\), nous facilite la création des relations. En créant ou en modifiant l'entité, il est possible d'ajouter le champs contenant la relation. Pour cela le type sera **"relation"**. La console vous demandera de préciser l'entité liée, ainsi que le type de relation. Vous pourrez ensuite selon la relation choisie\) préciser la relation inverse, de manière optionnelle ou obligatoire.
+La console \(`make:entity`\), nous facilite la création des relations. En créant ou en modifiant l'entité, il est possible d'ajouter le champs contenant la relation. Pour cela le type sera **"relation"**. La console vous demandera de préciser l'entité liée, ainsi que le type de relation. Vous pourrez ensuite selon la relation choisie, préciser la relation inverse, de manière optionnelle ou obligatoire.
 
 **Attention, il est d'usage de lancer la console dans l'entité qui porte la relation \(propriétaire\), ou l'entité qui recevra la clé étrangère.**
 
