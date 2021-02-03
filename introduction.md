@@ -113,7 +113,11 @@ Article comparatifs des 10 frameworks PHP les plus populaires de 2019: [https://
 * Moteur de template puissant et simple
 * Depuis la V4, Symfony est très léger et très rapide
 
-![](.gitbook/assets/capture-de-cran-2020-10-01-a-06.07.35.png)
+![Roadmap des versions de Symfony](.gitbook/assets/capture-de-cran-2021-02-03-a-10.58.06.png)
+
+{% hint style="info" %}
+Toutes les informations sur l'évolution du framework : [https://symfony.com/releases](https://symfony.com/releases)
+{% endhint %}
 
 ### Symfony V4 : Un retour aux bases
 
@@ -148,12 +152,16 @@ Une lecture intéressante sur la logique d'évolution du framework Symfony : [ht
 * Le nouveau gestionnaire d'installation de Symfony : [https://symfony.com/download](https://symfony.com/download)
 * Une maîtrise de son système d'exploitation ! \(fichiers cachés, variables PATH, php.ini, console...\)
 
+{% hint style="info" %}
+Vous pouvez suivre aussi les éléments de la documentation officielle : [https://symfony.com/doc/current/setup.html](https://symfony.com/doc/current/setup.html)
+{% endhint %}
+
 ## Exercice 1 : Installation des outils
 
 * [ ] Installer un serveur local \(si ce n'est pas déjà fait\)
 * [ ] Installer [Git](https://git-scm.com/)
 * [ ] Installer [Composer](https://getcomposer.org/)
-* [ ] Installer l'utilisateur [Symfony](https://symfony.com/download)
+* [ ] Installer l'utilitaire [Symfony](https://symfony.com/download) \(facultatif\)
 * [ ] Pour les utilisateurs de Windows : Installer une vraie console ! [https://cmder.net/](https://cmder.net/) par exemple.
 * [ ] Installer un vraie IDE ! \([PhpStorm](https://www.jetbrains.com/phpstorm/) / NetBeans, ou éventuellement [VSCode](https://code.visualstudio.com/)\).
 
@@ -169,7 +177,7 @@ git --version
 Vous devez vous afficher les numéros de version. **Corrigez les messages d'erreurs éventuels.**
 
 {% hint style="info" %}
-Vous pouvez tester si votre système est prêt à installer Symfony :
+Vous pouvez tester si votre système est prêt à installer Symfony \(si vous avez installé l'utilitaire Symfony\) :
 
 `symfony check:requirements`
 {% endhint %}
@@ -199,12 +207,15 @@ Il est possible de tester immédiatement le bon fonctionnement de l'installation
 
 ```text
 cd nomDuProjet
- symfony server:start
 ```
 
-Si vous vous rendez sur l'URL [http://localhost:8000/](http://localhost:8000/) vous devriez voir la page d'accueil de Symfony avec le numéro de la version installée..
+Si vous vous rendez sur l'URL [http://localhost/nomDuProjet/public/index.php](http://localhost/nomDuProjet/public/index.php) vous devriez voir la page d'accueil de Symfony avec le numéro de la version installée.
 
 {% hint style="info" %}
 Symfony embarque \(et installe\) un serveur Web très puissant qui permet de tester le fonctionnement d'un site. Il est possible de gérer les url sécurisées \(https\), la simulation d'un domaine, ...
+
+Symfony server:start \(si vous avez installé l'utilitaire\)
 {% endhint %}
+
+
 
