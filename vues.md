@@ -178,7 +178,7 @@ Le code ci-dessus serait équivalent en PHP au code suivant:
 
 ```php
 <?php
-if (count(users) > 0) {
+if (count($users) > 0) {
     foreach ($users as $user) {
         if ($user->active) {
             echo '<li>'.$user->username.'</li>';
@@ -220,8 +220,6 @@ On crée donc des templates mère assez flexibles pour pouvoir en hériter et su
 * Intégrer bootstrap \(CDN\)
 * Pour la page /color  afficher le mot de la même couleur dynamiquement \("bleu" en bleu\) \(en CSS\)
 * Pour la couleur rouge afficher en plus le Message : "Attention risque de virus" en rouge
-* Dans une page ajouter un lien vers les pages couleurs : red, blue, yellow, pink, violet, salmon en utilisant un foreach. On peut passer un tableau de couleurs depuis la méthode du contrôleur vers la vue
-* Mettre en souligné l'url active
 
 ## Inclusions
 
