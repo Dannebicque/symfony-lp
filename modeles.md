@@ -187,7 +187,7 @@ Une fois la base de données mise en place on va pouvoir insérer, modifier, sup
 
 ```php
 /**
- * @Route("/est", name="test")
+ * @Route("/test", name="test")
  */
 public function test()
 {
@@ -215,7 +215,10 @@ Ce dernier code effectue une création dans la base de données; pour une modifi
  */
 public function testModification()
 {
-    $post = $this->getDoctrine()->getRepository(Post::class)->find( 1 ); // récupération du post avec id 1 
+    // récupération du post avec id 1 
+    $post = $this->getDoctrine()->getRepository(Post::class)->find(1); 
+    //equivalent à SELECT * FROM post WHERE id=1
+    
     $post->setTitle('Mon titre'); // on set les différents champs
     $post->setEnable(true);
     $post->setDateCreated(new \Datetime);
@@ -236,10 +239,10 @@ Symfony et Doctrine proposes des requêtes prédéfinies, qui répondent aux usa
 
 Si `$em` est le manager associé à une entité :
 
-* `$em->find( $id );` on récupère qu'un seul élément de l'entité avec l'id `$id`;
+* `$em->find($id);` on récupère qu'un seul élément de l'entité avec l'id `$id`;
 * `$em->findAll();` on récupère toutes les entrées de l'entité concernée
-* `$em->findBy( $where, $order, $limit, $offset );` on recherche avec le tableau `$where` on tri avec le tableau `$order` on récupère `$limit` éléments à partir de l'élément `$offset`.
-* `$em->findOneBy($where,$order);` on récupère le premier élément respectant le tableau `$where` et trié avec le tableau `$order`;
+* `$em->findBy($where, $order, $limit, $offset);` on recherche avec le tableau `$where` on tri avec le tableau `$order` on récupère `$limit` éléments à partir de l'élément `$offset`.
+* `$em->findOneBy($where, $order);` on récupère le premier élément respectant le tableau `$where` et trié avec le tableau `$order`;
 * `$em->findByX($search);` requêtes magiques où X correspond à n'importe quel champs défini dans votre entité
 * `$em->findOneByX($search)` ; requêtes magiques où X correspond à n'importe quel champs défini dans votre entité
 
@@ -254,14 +257,14 @@ Exemple
  */
 public function test()
 {
-    $posts = $this->getDoctrine()->getRepository(Post::class)->findAll(); // récupération de tous les posts
+    // récupération de tous les posts
+    $posts = $this->getDoctrine()->getRepository(Post::class)->findAll(); 
+    //équivalent à SELECT * FROM post
     $em = $this->getDoctrine()->getManager(); // on récupère le gestionnaire d'entité
 
     foreach($posts as $post)
     {
-        $post->setTitle('Mon titre' . $post->getId() ); // on set les différents champs
-        $em->persist( $post ); // on déclare une modification de type persist et la
-        // génération des différents liens entre entité 
+        $post->setTitle('Mon titre ' . $post->getId() ); // on set les différents champs
     }
 
     $em->flush(); // on effectue les différentes modifications sur la base de données 
