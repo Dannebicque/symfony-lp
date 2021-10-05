@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Symfony](README.md)
+* [LP DEV](lp-dev.md)
 * [Introduction](introduction.md)
 * [Eco-Système de Symfony](eco-systeme.md)
 * [Architecture de Symfony](architecture-de-symfony.md)

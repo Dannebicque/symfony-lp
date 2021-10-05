@@ -15,11 +15,10 @@ Découvrir et appréhender un framework PHP web.
 
 * 20 heures de TD
 * 12 heures de TP
-* 16h en LP DEV + 16h d'outils en liens avec Symfony
+* LPDEV : voir planning sur la page dédiée : [LP DEV](lp-dev.md)
 * Notes :
   * 1 évaluation écrite \(dernier TD\)
   * 1 note pratique \(lors du dernier TP\)
-  * 1 projet évalué \(LP DEV\)
 
 ## Rappels des concepts du MVC
 
