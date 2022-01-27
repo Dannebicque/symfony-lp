@@ -8,30 +8,33 @@ Pour créer une page dans Symfony, il faut, au minimum :
 
 ## Premier controller
 
-```text
-// src/Controller/LuckyController.php
+```php
+<?php
+
 namespace App\Controller;
+
 use Symfony\Component\HttpFoundation\Response;
 
 class LuckyController
 {
     public function number()
     {
-        $number = mt_rand(0, 100);
+        $number = random_int(0, 100);
+
         return new Response(
-            'Lucky number: '.$number.''
+            'Lucky number: '.$number
         );
     }
 }
 ```
 
-Ce code est votre premier contrôleur \(à déposer dans `src/Controller`\). Ce contrôleur est composé d'une méthode qui calcul un nombre aléatoire et retourne une réponse qui est du code HTML. Ce code n'utilise pas directement les vues de Symfony, et ne fonctionne pas \(en tout cas il n'est pas possible de l'appeler\), car il n'est pas lié à une route.
+Ce code est votre premier contrôleur (à déposer dans `src/Controller`). Ce contrôleur est composé d'une méthode qui calcul un nombre aléatoire et retourne une réponse qui est du code HTML. Ce code n'utilise pas directement les vues de Symfony, et ne fonctionne pas (en tout cas il n'est pas possible de l'appeler), car il n'est pas lié à une route.
 
 ## Route
 
-Il faut définir les routes. Il existe de nombreuses méthodes \(yaml, xml, php, annotations\) Pour information voici la syntaxe en YAML, à mettre dans le fichier **routing.yaml**.
+Il faut définir les routes. Il existe de nombreuses méthodes (yaml, xml, php, annotations) Pour information voici la syntaxe en YAML, à mettre dans le fichier **routing.yaml**.
 
-```text
+```yaml
 # config/routes.yaml
 
 # the "app_lucky_number" route name is not important yet
@@ -40,7 +43,7 @@ app_lucky_number:
     controller: App\Controller\LuckyController::number
 ```
 
-Le site sera accessible à cette adresse \(en exécutant le serveur local à Symfony\) [http://localhost:8000/lucky/number](http://localhost:8000/lucky/number)
+Le site sera accessible à cette adresse (en exécutant le serveur local à Symfony) [http://localhost:8000/lucky/number](http://localhost:8000/lucky/number)
 
 {% hint style="danger" %}
 **Nous n'utiliserons pas cette solution, pour des raisons de confort.**
@@ -50,15 +53,17 @@ Le site sera accessible à cette adresse \(en exécutant le serveur local à Sym
 
 Nous allons utiliser les annotations, qui permettent une syntaxe plus simple, et une proximité entre la définition de la route et la définition de la méthode. Pour cela, il faut installer les annotations à Symfony avec la commande suivante :
 
-```text
+```
 composer require annotations
 ```
 
 Et modifier le contrôleur précédent en intégrant directement la route sous forme d'une annotation.
 
-```text
-// src/Controller/LuckyController.php
+```php
+<?php
+
 namespace App\Controller;
+
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -69,29 +74,32 @@ class LuckyController
      */
     public function number()
     {
-        $number = mt_rand(0, 100);
+        $number = random_int(0, 100);
+
         return new Response(
-            'Lucky number: '.$number.''
+            'Lucky number: '.$number
         );
     }
 }
+
 ```
 
 ## Ajout d'une vue
 
-Cette solution fonctionne, mais écrire tout le code HTML dans la méthode n'est pas très pratique. Nous devons donc écrire des vues. Par défaut, Symfony utilise [**Twig**](https://twig.symfony.com/). Pour cela, il faut l'installer
+Cette solution fonctionne, mais écrire tout le code HTML dans la méthode n'est pas très pratique. Nous devons donc écrire des vues. Par défaut, Symfony utilise [**Twig**](https://twig.symfony.com). Pour cela, il faut l'installer
 
-```text
+```
 composer require twig
 ```
 
 Il faut ensuite modifier le contrôleur pour utiliser les vues.
 
-```text
-// src/Controller/LuckyController.php
+```php
+<?php
+
 namespace App\Controller;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class LuckyController extends AbstractController
@@ -101,20 +109,24 @@ class LuckyController extends AbstractController
      */
     public function number()
     {
-        $number = mt_rand(0, 100);
-        return $this->render('lucky/number.html.twig', array(
-            'number' => $number,
-        ));
+        $number = random_int(0, 100);
+
+        return $this->render(
+            'lucky/number.html.twig',
+            [
+                'number' => $number
+            ]
+        );
     }
 }
+
 ```
 
 Il faut maintenant écrire la vue.
 
-```text
+```twig
 {# templates/lucky/number.html.twig #}
 <h1>Your lucky number is {{ number }}</h1>
 ```
 
 **Et Voilà !**
-

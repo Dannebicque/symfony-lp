@@ -2,7 +2,7 @@
 
 ## Présentation
 
-**Une route permet de diriger une url \(ou un pattern d'url\) vers une méthode de controller appelée Action.**
+**Une route permet de diriger une url (ou un pattern d'url) vers une méthode de controller appelée Action.**
 
 [La documentation officielle de Symfony sur les routes](https://symfony.com/doc/current/routing.html) et [La documentation officielle de Symfony sur les controllers](https://symfony.com/doc/current/controller.html)
 
@@ -22,7 +22,7 @@ public function article($slug)
 }
 ```
 
-* Une route est au minimum **un chemin \(path\) et un nom** 
+* Une route est au minimum **un chemin (path) et un nom**&#x20;
 * Ces variables peut être mise par défaut grâce à "defaults"
 * Ces variables peuvent être soumises à une validation de format via "requirements"
 
@@ -39,7 +39,7 @@ public function index($id)
 * On peut également préfixer l'url avec le mot clé "prefix"
 * On peut définir un path différent en fonction de la locale
 * Vous pouvez cumuler plusieurs routes pour une méthode Action
-* On peut spécifier le moyen d'accès à une route \(GET, POST, PUT, ...\)
+* On peut spécifier le moyen d'accès à une route (GET, POST, PUT, ...)
 
 ## Annotations
 
@@ -87,7 +87,7 @@ public function indexAction($page, $subpage)
 Pour générer une url en PHP on utilise :
 
 ```php
-$this->generateurl('nom_de_la_route', $variables);
+$this->generateUrl('nom_de_la_route', [$variables]);
 ```
 
 Ou sous TWIG on a deux fonctions :
@@ -100,7 +100,7 @@ Ou sous TWIG on a deux fonctions :
 
 ## Controller
 
-Les routes redirigent vers une méthode de Controller \(une action\); un controller Symfony se nomme de la sorte : NomDuController où le suffixe **Controller** est obligatoire et le nom du fichier et de la classe est en **CamelCase**.
+Les routes redirigent vers une méthode de Controller (une action); un controller Symfony se nomme de la sorte : NomDuController où le suffixe **Controller** est obligatoire et le nom du fichier et de la classe est en **CamelCase**.
 
 Les différentes méthodes se nomment de la sorte :
 
@@ -108,7 +108,7 @@ Les différentes méthodes se nomment de la sorte :
 
 _L'usage du suffixe Action n'est plus requis dans Symfony._
 
-Dans le cas idéal, le controller doit contenir le minimum de code possible \(20 lignes maximum selon les standards de Symfony\). Il ne doit que faire le lien entre les différents éléments de l'application et une réponse.
+Dans le cas idéal, le controller doit contenir le minimum de code possible (20 lignes maximum selon les standards de Symfony). Il ne doit que faire le lien entre les différents éléments de l'application et une réponse.
 
 ## Response
 
@@ -130,7 +130,7 @@ public function index(){
 
 Affiche à l'écran Ma response. Dans l'état cette réponse n'est pas du HTML, car rien n'est précisé dans le retour de la méthode.
 
-Une méthode render\(\) \(définie quand la classe AbstractController dont votre controller doit hériter\) permet aux Actions de récupérer une vue et d'afficher le contenu de la vue compilée avec les différentes variables envoyées.
+Une méthode render() (définie quand la classe AbstractController dont votre controller doit hériter) permet aux Actions de récupérer une vue et d'afficher le contenu de la vue compilée avec les différentes variables envoyées.
 
 ```php
 /**
@@ -158,7 +158,7 @@ Ici on va récupérer le template présent dans templates/default/index.html.twi
 
 ## Manipuler les requests
 
-L'objet "request" contient toutes les données envoyées par l'utilisateur \(formulaire, ...\), mais aussi les données envoyées par le navigateur.
+L'objet "request" contient toutes les données envoyées par l'utilisateur (formulaire, ...), mais aussi les données envoyées par le navigateur.
 
 En passant en paramètre un objet de type Request, on peut le manipuler selon les méthodes ci-dessous.
 
@@ -194,5 +194,4 @@ public function index(Request $request)
 
 ## Exercice 2
 
-Ajoutez une méthode \(route, méthode et vue\) qui permet de récupérer l'IP du client. On peut utiliser la méthode getClientIp\(\) de l'objet request.
-
+Ajoutez une méthode (route, méthode et vue) qui permet de récupérer l'IP du client. On peut utiliser la méthode getClientIp() de l'objet request.
