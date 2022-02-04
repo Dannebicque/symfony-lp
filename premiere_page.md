@@ -32,7 +32,7 @@ Ce code est votre premier contrôleur (à déposer dans `src/Controller`). Ce co
 
 ## Route
 
-Il faut définir les routes. Il existe de nombreuses méthodes (yaml, xml, php, annotations) Pour information voici la syntaxe en YAML, à mettre dans le fichier **routing.yaml**.
+Il faut définir les routes. Il existe de nombreuses méthodes (yaml, xml, php, annotations, attributs (php8)) Pour information voici la syntaxe en YAML, à mettre dans le fichier **routes.yaml**.
 
 ```yaml
 # config/routes.yaml
@@ -43,10 +43,16 @@ app_lucky_number:
     controller: App\Controller\LuckyController::number
 ```
 
-Le site sera accessible à cette adresse (en exécutant le serveur local à Symfony) [http://localhost:8000/lucky/number](http://localhost:8000/lucky/number)
+Le site sera accessible à cette adresse sur votre serveur local
+
+[http://localhost/NomDuProjet/public/index.php/lucky/number](http://localhost:8000/lucky/number) (WampServeur - Windows)
+
+[http://localhost:8888/NomDuProjet/public/index.php/lucky/number](http://localhost:8000/lucky/number) (Mamp - MacOs)
+
+[http://localhost:8000/lucky/number](http://localhost:8000/lucky/number) (Serveur embarqué avec Symfony CLI)
 
 {% hint style="danger" %}
-**Nous n'utiliserons pas cette solution, pour des raisons de confort.**
+**Nous n'utiliserons pas cette solution pour la gestion des routes, pour des raisons de confort.**
 {% endhint %}
 
 ## Autre solution
