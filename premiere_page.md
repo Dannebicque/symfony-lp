@@ -75,9 +75,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LuckyController
 {
-    /**
-     * @Route("/lucky/number", name="app_lucky_number")
-     */
+    #[Route("/lucky/number", name:"app_lucky_number")]
     public function number()
     {
         $number = random_int(0, 100);
@@ -90,9 +88,19 @@ class LuckyController
 
 ```
 
+{% hint style="info" %}
+La syntaxe avec "#" se nomme un attribut au sens de PHP8 et supérieur. Cette syntaxe ne fonctionne pas avec une version PHP inférieure à PHP8. Auparavant vous devez utiliser la syntaxe suivante (dite annotations) :&#x20;
+
+```
+/**
+* @Route("/lucky/number", name="app_lucky_number")
+*/
+```
+{% endhint %}
+
 ## Ajout d'une vue
 
-Cette solution fonctionne, mais écrire tout le code HTML dans la méthode n'est pas très pratique. Nous devons donc écrire des vues. Par défaut, Symfony utilise [**Twig**](https://twig.symfony.com). Pour cela, il faut l'installer
+Cette solution fonctionne, mais écrire tout le code HTML dans la méthode n'est pas très pratique. Nous devons donc écrire des vues. Par défaut, Symfony utilise [**Twig**](https://twig.symfony.com/). Pour cela, il faut l'installer
 
 ```
 composer require twig

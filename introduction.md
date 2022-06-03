@@ -115,8 +115,8 @@ Une lecture intéressante sur la logique d'évolution du framework Symfony : [ht
 
 * Un serveur Web
 * PHP 7.2.5 ou supérieur, PHP8 ou supérieur pour la version 6
-* [Git (différent de GitHub)](https://git-scm.com)
-* Le gestionnaire de dépendance [Composer](https://getcomposer.org)
+* [Git (différent de GitHub)](https://git-scm.com/)
+* Le gestionnaire de dépendance [Composer](https://getcomposer.org/)
 * Le nouveau gestionnaire d'installation de Symfony : [https://symfony.com/download](https://symfony.com/download)
 * Une maîtrise de son système d'exploitation ! (fichiers cachés, variables PATH, php.ini, console...)
 
@@ -127,8 +127,8 @@ Vous pouvez suivre aussi les éléments de la documentation officielle : [https:
 ## Exercice 1 : Installation des outils
 
 * [ ] Installer un serveur local (si ce n'est pas déjà fait)
-* [ ] Installer [Git](https://git-scm.com)
-* [ ] Installer [Composer](https://getcomposer.org)
+* [ ] Installer [Git](https://git-scm.com/)
+* [ ] Installer [Composer](https://getcomposer.org/)
 
 {% hint style="info" %}
 Pour les utilisateurs de Mac ou Linux&#x20;
@@ -153,7 +153,7 @@ Télécharger : [https://getcomposer.org/download/2.2.5/composer.phar](https://g
 {% endhint %}
 
 * [ ] Installer l'utilitaire [Symfony](https://symfony.com/download) (facultatif)
-* [ ] Pour les utilisateurs de Windows : Installer une vraie console PowerShell (à partir de windows 10) ou [https://cmder.net/](https://cmder.net) par exemple.
+* [ ] Pour les utilisateurs de Windows : Installer une vraie console PowerShell (à partir de windows 10) ou [https://cmder.net/](https://cmder.net/) par exemple.
 * [ ] Installer un vraie IDE ! ([PhpStorm](https://www.jetbrains.com/phpstorm/)).
 
 Pensez à vérifier que tout fonctionne correctement :
@@ -195,7 +195,7 @@ symfony new nomDuProjet
 
 ```
 
-Par défaut cette commande récupère la dernière version stable de Symfony. Le téléchargement peut prendre quelques minutes.
+Par défaut cette commande récupère la dernière version stable de Symfony (actuellement la version 6.1). Le téléchargement peut prendre quelques minutes.
 
 Il est possible de tester immédiatement le bon fonctionnement de l'installation en utilisant la ligne de commande intégrée dans l'utilitaire Symfony :
 
